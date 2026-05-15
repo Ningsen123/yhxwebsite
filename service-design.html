@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>设计服务 - 寅禾星科技</title>
+    <meta name="description" content="寅禾星科技提供专业的UI/UX设计、品牌VI设计、数据可视化大屏、交互原型设计、设计系统搭建等设计服务。让产品好看且好用。">
+    <meta name="keywords" content="UI设计,UX设计,品牌VI设计,数据大屏,交互原型,设计系统,北京UI设计公司">
+    <meta property="og:title" content="设计服务 - 寅禾星科技">
+    <meta property="og:description" content="UI/UX设计、品牌VI、数据可视化大屏，好看且好用">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/service-design.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/service-design.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 服务详情页特有样式 */
+        .service-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .service-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .service-hero h1 span {
+            color: var(--accent);
+        }
+
+        .service-hero-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .service-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .breadcrumb {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* 服务介绍 */
+        .service-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .service-intro-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-intro-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .service-intro-visual {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-intro-visual i {
+            font-size: 120px;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        /* 特性网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.05));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--accent);
+            margin: 0 auto 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* 流程步骤 */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .step-number::after {
+            content: '→';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: var(--accent);
+        }
+
+        .process-step:last-child .step-number::after {
+            display: none;
+        }
+
+        .process-step h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* 设计作品展示 */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-item::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover::after {
+            transform: translateY(0);
+        }
+
+        /* 定价预览 */
+        .pricing-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            position: relative;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-card .price-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        @media (max-width: 992px) {
+            .service-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .step-number::after {
+                display: none;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-hero h1 {
+                font-size: 28px;
+            }
+
+            .service-hero-buttons {
+                flex-direction: column;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 限时优惠横幅 -->
+    <div class="promo-banner">
+        🎉 新客专享：首单开发服务立减10% | 运维托管首月免费
+        <a href="pricing.html">了解详情 →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html" class="active">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>设计服务 <span>& 数字化大屏</span></h1>
+            <p class="service-hero-subtitle">
+                UI/UX设计、品牌VI、数据可视化大屏<br>
+                让产品好看且好用，提升用户体验与品牌形象
+            </p>
+            <div class="service-hero-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-lg" style="background: var(--accent);">获取报价</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">免费咨询</a>
+            </div>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / <a href="services.html">服务</a> / 设计服务
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="service-intro">
+                <div class="service-intro-content fade-in">
+                    <h2>匠心设计，创造价值</h2>
+                    <p>
+                        寅禾星科技设计团队拥有丰富的UI/UX设计经验，从用户研究到视觉设计，从交互原型到设计系统，我们致力于打造兼具美感与易用性的产品体验。
+                    </p>
+                    <p>
+                        我们擅长数据可视化大屏设计，为智慧园区、智慧城市、企业管理等场景提供专业的数字化展示方案，让数据会说话。
+                    </p>
+                    <a href="contact.html" class="btn btn-accent">查看设计案例</a>
+                </div>
+                <div class="service-intro-visual fade-in">
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心能力</h2>
+                <p>全场景设计解决方案</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX设计</h3>
+                    <p>以用户为中心的界面设计，兼顾美学与易用性，提升产品转化率</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>品牌VI</h3>
+                    <p>品牌视觉识别系统设计，Logo、色彩、字体、应用规范，塑造品牌调性</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>数据大屏</h3>
+                    <p>数据可视化大屏设计，智慧园区、企业管理、监控中心等场景</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <h3>交互原型</h3>
+                    <p>高保真交互原型设计，快速验证设计想法，降低开发成本</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3>设计系统</h3>
+                    <p>组件化设计系统搭建，确保产品一致性，提升设计开发效率</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>响应式设计</h3>
+                    <p>多端适配设计，PC、平板、手机端统一视觉体验</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务流程</h2>
+                <p>标准化设计流程，确保设计质量</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>需求调研</h4>
+                    <p>了解业务与用户</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>竞品分析</h4>
+                    <p>分析行业趋势</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>原型设计</h4>
+                    <p>交互流程设计</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>视觉设计</h4>
+                    <p>界面视觉呈现</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h4>切图标注</h4>
+                    <p>开发交付物输出</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <h4>设计规范</h4>
+                    <p>组件库与文档</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>设计作品</h2>
+                <p>精选设计案例展示</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in" data-title="企业官网设计" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="移动端APP设计" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="数据大屏设计" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="后台管理系统" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="品牌VI设计" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="小程序设计" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                    <i class="fab fa-weixin"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="智慧园区大屏" style="background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%);">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="portfolio-item fade-in" data-title="电商系统设计" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>价格方案</h2>
+                <p>灵活的设计服务套餐</p>
+            </div>
+            <div class="pricing-preview">
+                <div class="pricing-card fade-in">
+                    <h3>单项设计</h3>
+                    <div class="price">¥3000<span>起</span></div>
+                    <p class="price-note">适合单页面/单功能</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 单页面UI设计</li>
+                        <li><i class="fas fa-check"></i> 2次修改机会</li>
+                        <li><i class="fas fa-check"></i> 切图标注交付</li>
+                        <li><i class="fas fa-check"></i> 源文件交付</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-outline" style="width: 100%;">查看详情</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <h3>项目设计</h3>
+                    <div class="price">¥1.5万<span>起</span></div>
+                    <p class="price-note">适合完整项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 完整UI/UX设计</li>
+                        <li><i class="fas fa-check"></i> 交互原型设计</li>
+                        <li><i class="fas fa-check"></i> 设计规范输出</li>
+                        <li><i class="fas fa-check"></i> 开发全程支持</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-accent" style="width: 100%;">查看详情</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>数据大屏</h3>
+                    <div class="price">¥2万<span>起</span></div>
+                    <p class="price-note">适合数据可视化</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 大屏视觉设计</li>
+                        <li><i class="fas fa-check"></i> 数据图表设计</li>
+                        <li><i class="fas fa-check"></i> 动效设计</li>
+                        <li><i class="fas fa-check"></i> 适配方案</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-outline" style="width: 100%;">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>快速了解我们的设计服务</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        设计周期一般需要多久？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        根据项目规模，单页面设计约3-5个工作日，完整项目UI设计约2-4周，数据大屏设计约1-2周。具体时间会根据需求复杂度调整。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        设计稿支持几次修改？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        我们提供2-3次免费修改机会（根据套餐不同）。每次修改前会与您充分沟通，确保方向正确，减少不必要的返工。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        你们使用什么设计工具？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        我们主要使用Figma、Sketch进行界面设计，Adobe After Effects制作动效，Axure/墨刀制作交互原型。所有源文件均可交付。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        数据大屏可以对接真实数据吗？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        可以！我们提供设计+前端开发一站式服务，大屏设计完成后可直接对接您的数据源，实现数据实时展示。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        是否提供设计规范文档？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        项目设计套餐包含完整的设计规范文档，包括色彩规范、字体规范、组件库、间距系统等，确保设计落地的一致性。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>让您的产品脱颖而出</h2>
+            <p>获取免费设计咨询，让我们为您打造出色的产品体验</p>
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-lg" style="background: var(--accent);">查看报价方案</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">免费咨询</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                    <div style="margin-top: 16px; display: flex; gap: 12px;">
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-weixin"></i></a>
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-qq"></i></a>
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="service-dev.html">软件定制开发</a></li>
+                        <li><a href="service-ops.html">运维托管</a></li>
+                        <li><a href="service-design.html">UI/UX设计</a></li>
+                        <li><a href="service-design.html">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 在线客服 -->
+    <div class="online-service">
+        <div class="service-popup" id="servicePopup">
+            <h4>在线咨询</h4>
+            <p>选择您方便的方式联系我们</p>
+            <div class="service-options">
+                <a href="#" class="service-option">
+                    <i class="fab fa-weixin"></i>
+                    <span>微信扫码咨询</span>
+                </a>
+                <a href="tel:13241143670" class="service-option">
+                    <i class="fas fa-phone"></i>
+                    <span>电话咨询</span>
+                </a>
+                <a href="mailto:contact@yinhexing.com" class="service-option">
+                    <i class="fas fa-envelope"></i>
+                    <span>邮件咨询</span>
+                </a>
+            </div>
+        </div>
+        <button class="service-btn" id="serviceBtn">
+            <i class="fas fa-headset"></i>
+        </button>
+    </div>
+
+    <script async src="js/main.js"></script>
+</body>
+</html>

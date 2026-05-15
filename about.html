@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>关于北京寅禾星科技 - 专业软件开发运维设计技术团队</title>
+    <meta name="description" content="了解北京寅禾星科技有限公司，我们专注于软件定制开发、运维托管与UI/UX设计，致力于为成长型企业提供全栈技术解决方案。">
+    <meta name="keywords" content="寅禾星科技,关于我们,北京软件开发公司,技术团队,IT服务公司">
+    <meta property="og:title" content="关于北京寅禾星科技 - 专业软件开发运维设计技术团队">
+    <meta property="og:description" content="了解北京寅禾星科技有限公司，专注于软件开发、运维托管与UI设计的技术团队">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/about.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/about.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .about-intro {
+            padding: 80px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .intro-content > p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .intro-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .intro-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .intro-feature i {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .intro-feature h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .intro-feature p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .intro-visual {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .intro-visual i {
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mission-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .mission-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .mission-content > p {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .values-section {
+            padding: 80px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.05));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .team-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 64px;
+        }
+
+        .team-info {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .team-info .role {
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .team-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .timeline-section {
+            padding: 80px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-content {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            max-width: 350px;
+            margin: 0 24px;
+        }
+
+        .timeline-content .year {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .cta-buttons .btn-outline {
+            border-color: white;
+            color: white;
+        }
+
+        .cta-buttons .btn-outline:hover {
+            background: white;
+            color: var(--secondary);
+        }
+
+        @media (max-width: 992px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-item::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="about.html" class="active">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>关于我们</h1>
+            <p>了解寅禾星科技的故事</p>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 关于我们
+            </div>
+        </div>
+    </div>
+
+    <!-- About Intro -->
+    <section class="about-intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <h2>让技术真正赋能中小企业和创新团队</h2>
+                    <p>北京寅禾星科技有限公司成立于2025年，是一家专注于为成长型企业提供全栈技术服务的科技公司。我们相信，好的技术不应该只属于大企业，每个创新的想法都值得被认真对待。</p>
+                    <p>我们的团队拥有10+年行业经验，覆盖开发、运维、设计三大领域，能够为客户提供从需求分析到上线运维的一站式服务。</p>
+                    <div class="intro-features">
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>全栈能力</h4>
+                                <p>开发+运维+设计一站式交付</p>
+                            </div>
+                        </div>
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>敏捷开发</h4>
+                                <p>2周快速上线MVP</p>
+                            </div>
+                        </div>
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>成本友好</h4>
+                                <p>灵活合作，月付无压力</p>
+                            </div>
+                        </div>
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>持续服务</h4>
+                                <p>上线后持续运维保障</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-visual">
+                    <i class="fas fa-rocket"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <h2>我们的使命</h2>
+                <p>让技术真正赋能中小企业和创新团队，用专业的能力、真诚的服务、合理的成本，帮助每一个有想法的团队把产品做出来、运行好、持续迭代。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心价值观</h2>
+                <p>我们相信这些原则指引着我们的每一步</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>诚信为本</h3>
+                    <p>透明沟通，说到做到，不夸大承诺，用结果说话。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>追求卓越</h3>
+                    <p>每个项目都当作作品来做，细节决定品质。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>客户至上</h3>
+                    <p>站在客户角度思考，帮客户省心省钱省时间。</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>持续创新</h3>
+                    <p>拥抱新技术，不断学习，为客户提供更好的解决方案。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心团队</h2>
+                <p>三位核心负责人，各司其职</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>开发负责人</h3>
+                        <div class="role">技术总监 / CTO</div>
+                        <p>10+年全栈开发经验，精通Java/Go/Python，主导过多个大型系统架构设计。</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #0EA5E9 0%, #10B981 100%);">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>运维负责人</h3>
+                        <div class="role">运维总监 / DevOps Lead</div>
+                        <p>8年运维经验，擅长云原生架构、容器化部署、自动化运维体系建设。</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>设计负责人</h3>
+                        <div class="role">设计总监 / Design Lead</div>
+                        <p>8年UI/UX设计经验，擅长数据可视化、品牌视觉、交互设计。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>发展历程</h2>
+                <p>从创立到成长</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">2025年</div>
+                        <h4>公司成立</h4>
+                        <p>北京寅禾星科技有限公司正式成立，立志为中小企业提供专业技术服务。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">2025年</div>
+                        <h4>首个项目交付</h4>
+                        <p>成功交付首个智慧园区管理平台项目，获得客户高度认可。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">进行中</div>
+                        <h4>服务20+企业</h4>
+                        <p>已为20+家企业提供技术服务，涵盖餐饮、电商、人力、制造业等多个行业。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="year">未来</div>
+                        <h4>持续成长</h4>
+                        <p>计划扩展SaaS产品线，为更多中小企业提供低成本、高质量的技术服务。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>加入我们，一起成长</h2>
+            <p>无论是合作还是加入团队，我们都期待与您交流</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">联系我们</a>
+                <a href="pricing.html" class="btn btn-outline">查看报价</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="services.html#dev">软件定制开发</a></li>
+                        <li><a href="services.html#ops">运维托管</a></li>
+                        <li><a href="services.html#design">UI/UX设计</a></li>
+                        <li><a href="services.html#design">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <script async src="js/main.js"></script>
+</body>
+</html>

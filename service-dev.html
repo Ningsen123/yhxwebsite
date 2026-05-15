@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>软件定制开发 - 寅禾星科技</title>
+    <meta name="description" content="寅禾星科技提供专业的软件定制开发服务，包括Web开发、移动APP、微信小程序、企业系统、AI工具及API集成。从需求分析到上线运维，全生命周期交付。">
+    <meta name="keywords" content="软件定制开发,Web开发,移动APP开发,小程序开发,企业系统,AI工具开发,API集成,北京软件开发公司">
+    <meta property="og:title" content="软件定制开发 - 寅禾星科技">
+    <meta property="og:description" content="从需求分析到上线运维，全生命周期交付。适合企业官网、小程序、CRM、后台管理系统、AI工具。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/service-dev.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/service-dev.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 服务详情页特有样式 */
+        .service-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .service-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .service-hero h1 span {
+            color: var(--primary);
+        }
+
+        .service-hero-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .service-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .breadcrumb {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* 服务介绍 */
+        .service-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .service-intro-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-intro-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .service-intro-visual {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-intro-visual i {
+            font-size: 120px;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        /* 特性网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.05));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary);
+            margin: 0 auto 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* 流程步骤 */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .step-number::after {
+            content: '→';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .process-step:last-child .step-number::after {
+            display: none;
+        }
+
+        .process-step h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* 技术栈 */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .tech-tag {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 8px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* 定价预览 */
+        .pricing-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            position: relative;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-card .price-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--success);
+            font-size: 12px;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        @media (max-width: 992px) {
+            .service-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .step-number::after {
+                display: none;
+            }
+
+            .pricing-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-hero h1 {
+                font-size: 28px;
+            }
+
+            .service-hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 限时优惠横幅 -->
+    <div class="promo-banner">
+        🎉 新客专享：首单开发服务立减10% | 运维托管首月免费
+        <a href="pricing.html">了解详情 →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html" class="active">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>软件定制<span>开发</span></h1>
+            <p class="service-hero-subtitle">
+                从需求分析到上线运维，全生命周期交付<br>
+                适合企业官网、小程序、CRM、后台管理系统、AI工具
+            </p>
+            <div class="service-hero-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-lg">获取报价</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">免费咨询</a>
+            </div>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / <a href="services.html">服务</a> / 软件定制开发
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="service-intro">
+                <div class="service-intro-content fade-in">
+                    <h2>全栈技术，一站式交付</h2>
+                    <p>
+                        寅禾星科技拥有10年以上的软件开发经验，涵盖Web开发、移动APP、微信小程序、企业级系统、AI工具及API集成等全栈技术能力。
+                    </p>
+                    <p>
+                        我们采用敏捷开发方法论，以需求为导向，快速迭代，确保项目按时高质量交付。从原型设计到代码实现，从测试到部署，我们提供全流程专业技术支持。
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">开始项目咨询</a>
+                </div>
+                <div class="service-intro-visual fade-in">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心能力</h2>
+                <p>覆盖全场景的技术解决方案</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Web开发</h3>
+                    <p>响应式企业官网、电商平台、SaaS系统，支持Vue/React/Next.js等主流框架</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>移动APP</h3>
+                    <p>iOS/Android原生及跨平台开发，Flutter/React Native，性能与体验兼顾</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fab fa-weixin"></i>
+                    </div>
+                    <h3>微信小程序</h3>
+                    <p>小程序、公众号、企业微信应用，对接微信支付、地图等生态能力</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>企业系统</h3>
+                    <p>CRM、ERP、OA、HRM等企业管理系统定制开发，助力数字化转型</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI工具</h3>
+                    <p>NLP、计算机视觉、智能推荐等AI应用开发，支持私有化部署</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>API集成</h3>
+                    <p>第三方系统对接、数据迁移、微服务架构设计，打通信息孤岛</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务流程</h2>
+                <p>标准化流程，确保项目高质量交付</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>需求分析</h4>
+                    <p>深入了解业务需求</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>方案设计</h4>
+                    <p>技术架构规划</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>UI设计</h4>
+                    <p>原型与视觉设计</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>开发测试</h4>
+                    <p>敏捷开发与测试</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h4>部署上线</h4>
+                    <p>环境配置与发布</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <h4>运维保障</h4>
+                    <p>持续监控与维护</p>
+                </div>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Vue</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Redis</span>
+                <span class="tech-tag">Kubernetes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>价格方案</h2>
+                <p>灵活的合作模式，满足不同规模需求</p>
+            </div>
+            <div class="pricing-preview">
+                <div class="pricing-card fade-in">
+                    <h3>基础版</h3>
+                    <div class="price">¥1.5万<span>起</span></div>
+                    <p class="price-note">适合小型项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 单页面/小程序</li>
+                        <li><i class="fas fa-check"></i> 基础功能开发</li>
+                        <li><i class="fas fa-check"></i> 响应式设计</li>
+                        <li><i class="fas fa-check"></i> 1个月免费维护</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-outline" style="width: 100%;">查看详情</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <h3>标准版</h3>
+                    <div class="price">¥5万<span>起</span></div>
+                    <p class="price-note">适合中型项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 完整系统开发</li>
+                        <li><i class="fas fa-check"></i> 后台管理系统</li>
+                        <li><i class="fas fa-check"></i> 数据库设计</li>
+                        <li><i class="fas fa-check"></i> 3个月免费维护</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-primary" style="width: 100%;">查看详情</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>企业版</h3>
+                    <div class="price">¥15万<span>起</span></div>
+                    <p class="price-note">适合大型项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 全栈定制开发</li>
+                        <li><i class="fas fa-check"></i> 多端适配</li>
+                        <li><i class="fas fa-check"></i> 高并发架构</li>
+                        <li><i class="fas fa-check"></i> 6个月免费维护</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-outline" style="width: 100%;">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>快速了解我们的开发服务</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        开发一个小程序大概需要多长时间？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        根据功能复杂度，基础小程序约2-3周，中等复杂度约4-6周，大型项目约2-3个月。我们会根据您的需求提供详细的时间规划。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        你们使用什么技术栈？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        我们支持主流技术栈：后端Java/Go/Python/Node.js，前端Vue/React/Next.js，移动端Flutter/React Native。会根据项目特点推荐最适合的技术方案。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        项目开发过程中如何保证质量？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        我们采用敏捷开发模式，每1-2周进行一次迭代评审；实施代码审查制度；完整的单元测试和集成测试；上线前进行全面回归测试，确保产品质量。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        开发完成后是否提供源代码？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        是的，项目交付时会提供完整的源代码、部署文档和技术文档。您拥有项目的全部知识产权。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        后期维护费用如何计算？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        项目交付后提供免费维护期（1-6个月），之后可选择月度维护套餐（800-3000元/月）或按需付费，包含Bug修复、功能迭代和技术支持。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>准备好开始您的项目了吗？</h2>
+            <p>获取免费需求评估，让我们为您提供专业的技术方案</p>
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-lg">查看报价方案</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">免费咨询</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                    <div style="margin-top: 16px; display: flex; gap: 12px;">
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-weixin"></i></a>
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-qq"></i></a>
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="service-dev.html">软件定制开发</a></li>
+                        <li><a href="service-ops.html">运维托管</a></li>
+                        <li><a href="service-design.html">UI/UX设计</a></li>
+                        <li><a href="service-design.html">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 在线客服 -->
+    <div class="online-service">
+        <div class="service-popup" id="servicePopup">
+            <h4>在线咨询</h4>
+            <p>选择您方便的方式联系我们</p>
+            <div class="service-options">
+                <a href="#" class="service-option">
+                    <i class="fab fa-weixin"></i>
+                    <span>微信扫码咨询</span>
+                </a>
+                <a href="tel:13241143670" class="service-option">
+                    <i class="fas fa-phone"></i>
+                    <span>电话咨询</span>
+                </a>
+                <a href="mailto:contact@yinhexing.com" class="service-option">
+                    <i class="fas fa-envelope"></i>
+                    <span>邮件咨询</span>
+                </a>
+            </div>
+        </div>
+        <button class="service-btn" id="serviceBtn">
+            <i class="fas fa-headset"></i>
+        </button>
+    </div>
+
+    <script async src="js/main.js"></script>
+</body>
+</html>

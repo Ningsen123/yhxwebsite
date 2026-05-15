@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>运维托管 - 寅禾星科技</title>
+    <meta name="description" content="寅禾星科技提供专业的运维托管与DevOps服务，包括7×24小时监控、自动备份、安全加固、性能优化、CI/CD搭建、容器化部署。让系统永不宕机。">
+    <meta name="keywords" content="运维托管,DevOps,服务器监控,数据备份,安全加固,CI/CD,容器化,北京运维服务">
+    <meta property="og:title" content="运维托管 - 寅禾星科技">
+    <meta property="og:description" content="7×24小时监控、自动备份、安全加固、性能优化，让系统永不宕机">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/service-ops.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/service-ops.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 服务详情页特有样式 */
+        .service-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #0d3a63 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .service-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .service-hero h1 span {
+            color: var(--success);
+        }
+
+        .service-hero-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .service-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .breadcrumb {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* 服务介绍 */
+        .service-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .service-intro-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-intro-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .service-intro-visual {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-intro-visual i {
+            font-size: 120px;
+            color: var(--success);
+            opacity: 0.3;
+        }
+
+        /* 特性网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--success);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--success);
+            margin: 0 auto 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* 流程步骤 */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .step-number::after {
+            content: '→';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: var(--success);
+        }
+
+        .process-step:last-child .step-number::after {
+            display: none;
+        }
+
+        .process-step h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* 服务等级 */
+        .sla-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .sla-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .sla-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sla-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 8px;
+        }
+
+        .sla-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* 定价预览 */
+        .pricing-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--success);
+            position: relative;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured::before {
+            content: '推荐';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-card .price-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--success);
+            font-size: 12px;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--success);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #0d3a63 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        @media (max-width: 992px) {
+            .service-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .step-number::after {
+                display: none;
+            }
+
+            .sla-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-hero h1 {
+                font-size: 28px;
+            }
+
+            .service-hero-buttons {
+                flex-direction: column;
+            }
+
+            .sla-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 限时优惠横幅 -->
+    <div class="promo-banner">
+        🎉 新客专享：首单开发服务立减10% | 运维托管首月免费
+        <a href="pricing.html">了解详情 →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html" class="active">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <h1>运维托管 <span>& DevOps</span></h1>
+            <p class="service-hero-subtitle">
+                7×24小时监控，自动备份，安全加固，性能优化<br>
+                让系统永不宕机，为您的业务保驾护航
+            </p>
+            <div class="service-hero-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-lg" style="background: var(--success);">获取报价</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">免费评估</a>
+            </div>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / <a href="services.html">服务</a> / 运维托管
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Introduction -->
+    <section class="section">
+        <div class="container">
+            <div class="service-intro">
+                <div class="service-intro-content fade-in">
+                    <h2>专业运维，安心无忧</h2>
+                    <p>
+                        寅禾星科技提供企业级运维托管服务，从服务器监控到安全防护，从性能优化到灾备演练，全方位保障您的系统稳定运行。
+                    </p>
+                    <p>
+                        我们的DevOps团队拥有丰富的云平台运维经验，支持阿里云、腾讯云、华为云等主流云服务商，帮助您构建高可用、高性能的IT基础设施。
+                    </p>
+                    <a href="contact.html" class="btn btn-success">申请免费评估</a>
+                </div>
+                <div class="service-intro-visual fade-in">
+                    <i class="fas fa-server"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLA Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务承诺</h2>
+                <p>行业领先的SLA保障</p>
+            </div>
+            <div class="sla-cards">
+                <div class="sla-card fade-in">
+                    <h3>99.9%</h3>
+                    <p>系统可用率</p>
+                </div>
+                <div class="sla-card fade-in">
+                    <h3>5分钟</h3>
+                    <p>紧急响应时间</p>
+                </div>
+                <div class="sla-card fade-in">
+                    <h3>7×24</h3>
+                    <p>全天候监控</p>
+                </div>
+                <div class="sla-card fade-in">
+                    <h3>2小时</h3>
+                    <p>工作日响应时间</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心能力</h2>
+                <p>全方位运维保障体系</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>7×24监控</h3>
+                    <p>服务器、数据库、应用全链路监控，异常实时告警，问题早发现早处理</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>自动备份</h3>
+                    <p>数据自动备份，支持本地+异地双备份，确保数据安全可恢复</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>安全加固</h3>
+                    <p>漏洞扫描、防火墙配置、入侵检测、等保合规，构建安全防线</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>性能优化</h3>
+                    <p>系统性能调优、负载均衡、缓存优化，提升用户体验</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>CI/CD</h3>
+                    <p>持续集成/持续部署，自动化构建发布，提升交付效率</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>容器化</h3>
+                    <p>Docker/Kubernetes容器化部署，弹性伸缩，资源高效利用</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务流程</h2>
+                <p>标准化运维服务流程</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>环境评估</h4>
+                    <p>全面评估现有环境</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>架构优化</h4>
+                    <p>优化系统架构</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>监控部署</h4>
+                    <p>部署监控体系</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>安全加固</h4>
+                    <p>全面安全防护</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h4>持续运维</h4>
+                    <p>7×24小时保障</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <h4>定期报告</h4>
+                    <p>运维数据分析</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>价格方案</h2>
+                <p>灵活的运维套餐，满足不同规模需求</p>
+            </div>
+            <div class="pricing-preview">
+                <div class="pricing-card fade-in">
+                    <h3>基础运维</h3>
+                    <div class="price">¥800<span>/月</span></div>
+                    <p class="price-note">适合小型项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 7×24监控告警</li>
+                        <li><i class="fas fa-check"></i> 每日数据备份</li>
+                        <li><i class="fas fa-check"></i> 紧急故障处理</li>
+                        <li><i class="fas fa-check"></i> 月度运维报告</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-outline" style="width: 100%;">查看详情</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <h3>标准运维</h3>
+                    <div class="price">¥2000<span>/月</span></div>
+                    <p class="price-note">适合中型项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 基础运维全部功能</li>
+                        <li><i class="fas fa-check"></i> 安全加固服务</li>
+                        <li><i class="fas fa-check"></i> 性能优化调优</li>
+                        <li><i class="fas fa-check"></i> 5分钟紧急响应</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-success" style="width: 100%;">查看详情</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>企业运维</h3>
+                    <div class="price">¥5000<span>/月</span></div>
+                    <p class="price-note">适合大型项目</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 标准运维全部功能</li>
+                        <li><i class="fas fa-check"></i> CI/CD搭建</li>
+                        <li><i class="fas fa-check"></i> 容器化部署</li>
+                        <li><i class="fas fa-check"></i> 专属运维工程师</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-outline" style="width: 100%;">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>快速了解我们的运维服务</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        运维服务包含哪些内容？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        运维服务包括：服务器监控、数据库维护、安全防护、性能优化、数据备份、故障处理、定期巡检、运维报告等。根据套餐不同，服务内容有所差异。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        支持哪些云平台？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        我们支持阿里云、腾讯云、华为云、AWS、Azure等主流云平台，同时也支持自建物理服务器和混合云架构的运维管理。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        紧急故障响应时间是多久？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        基础运维套餐：工作日2小时内响应；标准运维套餐：7×24小时5分钟内响应；企业运维套餐：7×24小时即时响应，专属工程师对接。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        数据备份策略是什么？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        我们采用本地+异地双备份策略：每日增量备份，每周全量备份，数据保留30天。支持一键恢复，确保数据安全。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        可以先试用再决定吗？
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        可以！我们提供首月免费试用服务，让您无风险体验我们的运维服务质量。满意后再正式签约合作。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>让系统永远在线</h2>
+            <p>申请免费运维评估，获取专属运维方案</p>
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-lg">查看报价方案</a>
+                <a href="contact.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">免费评估</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                    <div style="margin-top: 16px; display: flex; gap: 12px;">
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-weixin"></i></a>
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-qq"></i></a>
+                        <a href="#" style="color: rgba(255,255,255,0.7); font-size: 20px;"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="service-dev.html">软件定制开发</a></li>
+                        <li><a href="service-ops.html">运维托管</a></li>
+                        <li><a href="service-design.html">UI/UX设计</a></li>
+                        <li><a href="service-design.html">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 在线客服 -->
+    <div class="online-service">
+        <div class="service-popup" id="servicePopup">
+            <h4>在线咨询</h4>
+            <p>选择您方便的方式联系我们</p>
+            <div class="service-options">
+                <a href="#" class="service-option">
+                    <i class="fab fa-weixin"></i>
+                    <span>微信扫码咨询</span>
+                </a>
+                <a href="tel:13241143670" class="service-option">
+                    <i class="fas fa-phone"></i>
+                    <span>电话咨询</span>
+                </a>
+                <a href="mailto:contact@yinhexing.com" class="service-option">
+                    <i class="fas fa-envelope"></i>
+                    <span>邮件咨询</span>
+                </a>
+            </div>
+        </div>
+        <button class="service-btn" id="serviceBtn">
+            <i class="fas fa-headset"></i>
+        </button>
+    </div>
+
+    <script async src="js/main.js"></script>
+</body>
+</html>

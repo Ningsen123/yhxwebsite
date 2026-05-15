@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>联系我们 - 寅禾星科技</title>
+    <meta name="description" content="联系北京寅禾星科技有限公司，获取免费技术咨询和定制报价方案。电话：132-4114-3670，邮箱：contact@yinhexing.com，地址：北京市大兴区。">
+    <meta name="keywords" content="联系我们,技术咨询,报价方案,北京IT服务,寅禾星科技,软件开发咨询">
+    <meta property="og:title" content="联系北京寅禾星科技 - 获取免费技术咨询与报价">
+    <meta property="og:description" content="联系寅禾星科技，获取免费技术咨询和定制报价方案">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/contact.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/contact.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "北京寅禾星科技有限公司",
+        "url": "https://www.yinhexing.com",
+        "logo": "https://www.yinhexing.com/images/logo.png",
+        "description": "提供软件定制开发、运维托管、UI/UX设计一站式技术服务",
+        "telephone": "+86-132-4114-3670",
+        "email": "contact@yinhexing.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "民安路6号",
+            "addressLocality": "北京市大兴区",
+            "addressRegion": "北京",
+            "postalCode": "102600",
+            "addressCountry": "CN"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        },
+        "areaServed": "北京及周边地区",
+        "priceRange": "$$"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .info-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-card p {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .info-card a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .info-card a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .contact-form-card > p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        .map-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .map-container {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .map-placeholder {
+            text-align: center;
+        }
+
+        .map-placeholder i {
+            font-size: 64px;
+            color: var(--border);
+            margin-bottom: 16px;
+        }
+
+        .map-placeholder p {
+            font-size: 16px;
+        }
+
+        .social-section {
+            padding: 80px 0;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .social-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .social-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .social-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 28px;
+        }
+
+        .social-icon.wechat {
+            background: #07C160;
+            color: white;
+        }
+
+        .social-icon.email {
+            background: var(--primary);
+            color: white;
+        }
+
+        .social-icon.phone {
+            background: var(--accent);
+            color: white;
+        }
+
+        .social-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .social-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin: 16px auto 0;
+            overflow: hidden;
+        }
+
+        .faq-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="blog.html">博客</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="active nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>获取免费咨询，让我们为您的项目提供专业技术支持</p>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 联系我们
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>与我们取得联系</h2>
+                    <p>无论是项目咨询、合作洽谈还是加入团队，我们都期待与您交流。填写右侧表单或通过以下方式联系我们。</p>
+
+                    <div class="info-card">
+                        <h4>电话咨询</h4>
+                        <p><a href="tel:13241143670">132-4114-3670</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>商务邮箱</h4>
+                        <p><a href="mailto:contact@yinhexing.com">contact@yinhexing.com</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>公司地址</h4>
+                        <p>北京市大兴区长子营镇民安路6号</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>工作时间</h4>
+                        <p>周一至周五 9:00-18:00</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <h3>获取免费方案</h3>
+                    <p>填写以下信息，我们会在1个工作日内与您联系</p>
+                    <form id="contactForm" method="post" data-validate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">您的姓名 *</label>
+                                <input type="text" id="name" name="name" placeholder="请输入姓名" maxlength="50" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">联系电话 *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="请输入11位手机号" pattern="1[3-9]\d{9}" maxlength="11" autocomplete="tel" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">公司名称</label>
+                            <input type="text" id="company" name="company" placeholder="请输入公司名称" maxlength="100" autocomplete="organization">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">感兴趣的服务</label>
+                            <select id="service" name="service">
+                                <option value="">请选择</option>
+                                <option value="dev">软件定制开发</option>
+                                <option value="ops">运维托管</option>
+                                <option value="design">UI/UX设计</option>
+                                <option value="screen">数据可视化大屏</option>
+                                <option value="saas">SaaS服务</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">预算范围</label>
+                            <select id="budget" name="budget">
+                                <option value="">请选择</option>
+                                <option value="1-3">1-3万</option>
+                                <option value="3-5">3-5万</option>
+                                <option value="5-10">5-10万</option>
+                                <option value="10-20">10-20万</option>
+                                <option value="20+">20万以上</option>
+                                <option value="unknown">暂未确定</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">需求简述 *</label>
+                            <textarea id="message" name="message" placeholder="请描述您的需求，包括项目背景、功能需求、期望上线时间等..." maxlength="200" autocomplete="off" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">提交，获取报价</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>北京市大兴区长子营镇民安路6号</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social -->
+    <section class="social-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>多种方式联系我们</h2>
+                <p>选择最适合您的沟通方式</p>
+            </div>
+            <div class="social-grid">
+                <div class="social-card">
+                    <div class="social-icon wechat">
+                        <i class="fab fa-weixin"></i>
+                    </div>
+                    <h4>微信咨询</h4>
+                    <p>扫描二维码，快速沟通</p>
+                    <div class="qr-code">
+                        <img src="images/qr.jpg" alt="微信二维码" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
+                <div class="social-card">
+                    <div class="social-icon email">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>邮件咨询</h4>
+                    <p>详细描述需求，我们24小时内回复</p>
+                    <p style="margin-top: 16px; color: var(--primary); font-weight: 500;">contact@yinhexing.com</p>
+                </div>
+
+                <div class="social-card">
+                    <div class="social-icon phone">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>电话咨询</h4>
+                    <p>工作日 9:00-18:00</p>
+                    <p style="margin-top: 16px; color: var(--primary); font-weight: 500;">132-4114-3670</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>关于合作的常见问题</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>如何开始合作？</h4>
+                    <p>联系我们进行免费需求咨询，我们会在1-2个工作日内提供详细的需求评估和正式报价方案。确认合作后签订合同，预付款到位即可启动项目。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>支持哪些付款方式？</h4>
+                    <p>支持对公转账、支付宝、微信支付等方式。大额项目支持分期付款，通常采用"3-3-3-1"模式。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>项目验收标准是什么？</h4>
+                    <p>项目开始前会明确验收标准和测试用例。验收时按照约定标准逐项确认，通过后签署验收报告。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>售后维护如何保障？</h4>
+                    <p>基础版项目提供3个月免费维护，专业版6个月，企业版12个月。维护期内免费修复Bug，超出维护期可签订运维托管合同。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="service-dev.html">软件定制开发</a></li>
+                        <li><a href="service-ops.html">运维托管</a></li>
+                        <li><a href="service-design.html">UI/UX设计</a></li>
+                        <li><a href="service-design.html">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                        <li><a href="blog.html">技术博客</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 在线客服 -->
+    <div class="online-service">
+        <div class="service-popup" id="servicePopup">
+            <h4>在线咨询</h4>
+            <p>选择您方便的方式联系我们</p>
+            <div class="service-options">
+                <a href="#" class="service-option">
+                    <i class="fab fa-weixin"></i>
+                    <span>微信扫码咨询</span>
+                </a>
+                <a href="tel:13241143670" class="service-option">
+                    <i class="fas fa-phone"></i>
+                    <span>电话咨询</span>
+                </a>
+                <a href="mailto:contact@yinhexing.com" class="service-option">
+                    <i class="fas fa-envelope"></i>
+                    <span>邮件咨询</span>
+                </a>
+            </div>
+        </div>
+        <button class="service-btn" id="serviceBtn">
+            <i class="fas fa-headset"></i>
+        </button>
+    </div>
+
+    <!-- 微信二维码弹窗 -->
+    <div id="wechatModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 10001; align-items: center; justify-content: center;" onclick="this.style.display='none'">
+        <div style="background: white; border-radius: 16px; padding: 32px; text-align: center; max-width: 280px;" onclick="event.stopPropagation()">
+            <h4 style="margin-bottom: 16px; color: var(--secondary);">微信扫码咨询</h4>
+            <img src="images/qr.jpg" alt="微信二维码" style="width: 200px; height: 200px; border-radius: 8px; object-fit: cover;">
+            <p style="margin-top: 12px; font-size: 13px; color: var(--text-muted);">长按识别二维码添加微信</p>
+            <button onclick="document.getElementById('wechatModal').style.display='none'" style="margin-top: 16px; padding: 8px 24px; border: 1px solid var(--border); border-radius: 6px; background: white; cursor: pointer; color: var(--text-muted);">关闭</button>
+        </div>
+    </div>
+
+    <script async src="js/main.js"></script>
+</body>
+</html>

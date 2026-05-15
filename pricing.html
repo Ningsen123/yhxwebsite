@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>寅禾星科技IT服务报价 - 灵活透明的技术方案价格</title>
+    <meta name="description" content="北京寅禾星科技IT服务报价方案，软件开发、运维托管、UI设计灵活定价，按需定制，透明公开。获取免费技术咨询和专属报价。">
+    <meta name="keywords" content="IT服务报价,软件开发价格,运维托管费用,UI设计报价,北京技术服务商,寅禾星科技">
+    <meta property="og:title" content="寅禾星科技IT服务报价 - 灵活透明的技术方案价格">
+    <meta property="og:description" content="软件开发、运维托管、UI设计灵活定价，按需定制，透明公开">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/pricing.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/pricing.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .pricing-intro {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .pricing-intro h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .pricing-intro p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-tab {
+            padding: 12px 32px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pricing-tab:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .pricing-tab.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .pricing-section {
+            display: none;
+        }
+
+        .pricing-section.active {
+            display: block;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .pricing-card {
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.popular::before {
+            content: '推荐';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-card .price-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .pricing-features li i {
+            color: var(--success);
+            margin-top: 3px;
+        }
+
+        .pricing-features li.disabled {
+            color: var(--text-light);
+        }
+
+        .pricing-features li.disabled i {
+            color: var(--text-light);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* SaaS Pricing */
+        .saas-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .saas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .saas-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .saas-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .saas-card.highlight {
+            border-color: var(--primary);
+            position: relative;
+        }
+
+        .saas-card.highlight::before {
+            content: '最受欢迎';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .saas-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .saas-card .saas-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .saas-card .saas-price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .saas-card .saas-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .saas-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .saas-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .saas-features li i {
+            color: var(--success);
+            font-size: 12px;
+        }
+
+        /* Calculator */
+        .calculator-section {
+            padding: 80px 0;
+        }
+
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .calculator-form {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+        }
+
+        .calculator-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .price-result {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .price-result h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 32px;
+        }
+
+        .price-estimate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .price-label {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .price-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .price-breakdown {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .price-breakdown h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .breakdown-item span:first-child {
+            color: var(--text-muted);
+        }
+
+        .breakdown-item span:last-child {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .pricing-faq {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 992px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .saas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .calculator-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .pricing-tabs {
+                flex-wrap: wrap;
+            }
+
+            .saas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务</a></li>
+                <li><a href="pricing.html" class="active">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>报价方案</h1>
+            <p>透明的价格，灵活的方案，满足不同规模企业需求</p>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 报价方案
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Tabs -->
+    <section class="pricing-intro">
+        <div class="container">
+            <h2>选择适合您的方案</h2>
+            <p>我们提供灵活的定价模式，从一次性项目到长期合作，都能找到合适的方案</p>
+            <div class="pricing-tabs">
+                <button class="pricing-tab active" onclick="switchTab('dev')">软件开发</button>
+                <button class="pricing-tab" onclick="switchTab('ops')">运维托管</button>
+                <button class="pricing-tab" onclick="switchTab('design')">设计服务</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Pricing -->
+    <div class="pricing-section active" id="dev-pricing">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Basic -->
+                <div class="pricing-card">
+                    <h3>基础版</h3>
+                    <div class="price">¥15,000<span>起</span></div>
+                    <div class="price-desc">适合初创企业MVP验证</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 企业官网/展示站</li>
+                        <li><i class="fas fa-check"></i> 响应式设计</li>
+                        <li><i class="fas fa-check"></i> 基础SEO优化</li>
+                        <li><i class="fas fa-check"></i> 后台管理系统</li>
+                        <li><i class="fas fa-check"></i> 3个月免费维护</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 小程序开发</li>
+                        <li class="disabled"><i class="fas fa-times"></i> APP开发</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 定制API接口</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">立即咨询</a>
+                </div>
+
+                <!-- Pro -->
+                <div class="pricing-card popular">
+                    <h3>专业版</h3>
+                    <div class="price">¥50,000<span>起</span></div>
+                    <div class="price-desc">适合成长型企业数字化</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 微信小程序/公众号</li>
+                        <li><i class="fas fa-check"></i> 管理后台系统</li>
+                        <li><i class="fas fa-check"></i> 用户中心/会员系统</li>
+                        <li><i class="fas fa-check"></i> 数据统计面板</li>
+                        <li><i class="fas fa-check"></i> 6个月免费维护</li>
+                        <li><i class="fas fa-check"></i> 基础运维支持</li>
+                        <li class="disabled"><i class="fas fa-times"></i> APP开发</li>
+                        <li class="disabled"><i class="fas fa-times"></i> AI功能集成</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">立即咨询</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <h3>企业版</h3>
+                    <div class="price">¥150,000<span>起</span></div>
+                    <div class="price-desc">适合大型企业定制系统</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 全端覆盖（Web+小程序+APP）</li>
+                        <li><i class="fas fa-check"></i> 微服务架构</li>
+                        <li><i class="fas fa-check"></i> AI功能集成</li>
+                        <li><i class="fas fa-check"></i> 第三方系统对接</li>
+                        <li><i class="fas fa-check"></i> 12个月免费维护</li>
+                        <li><i class="fas fa-check"></i> 专属运维支持</li>
+                        <li><i class="fas fa-check"></i> 源码交付</li>
+                        <li><i class="fas fa-check"></i> 7×24小时响应</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">立即咨询</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Operations Pricing -->
+    <div class="pricing-section" id="ops-pricing">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Basic -->
+                <div class="pricing-card">
+                    <h3>基础运维</h3>
+                    <div class="price">¥800<span>/月</span></div>
+                    <div class="price-desc">适合单服务器简单应用</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 7×12小时监控</li>
+                        <li><i class="fas fa-check"></i> 每周自动备份</li>
+                        <li><i class="fas fa-check"></i> 安全补丁更新</li>
+                        <li><i class="fas fa-check"></i> 工作日8小时响应</li>
+                        <li><i class="fas fa-check"></i> 月度巡检报告</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 7×24小时响应</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 异地灾备</li>
+                        <li class="disabled"><i class="fas fa-times"></i> DevOps支持</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">立即咨询</a>
+                </div>
+
+                <!-- Pro -->
+                <div class="pricing-card popular">
+                    <h3>专业运维</h3>
+                    <div class="price">¥2,000<span>/月</span></div>
+                    <div class="price-desc">适合中小型企业应用</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 7×24小时监控</li>
+                        <li><i class="fas fa-check"></i> 每日自动备份</li>
+                        <li><i class="fas fa-check"></i> 异地灾备</li>
+                        <li><i class="fas fa-check"></i> 2小时应急响应</li>
+                        <li><i class="fas fa-check"></i> 安全漏洞扫描</li>
+                        <li><i class="fas fa-check"></i> 性能优化建议</li>
+                        <li><i class="fas fa-check"></i> 周度巡检报告</li>
+                        <li class="disabled"><i class="fas fa-times"></i> DevOps支持</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">立即咨询</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <h3>企业运维</h3>
+                    <div class="price">¥5,000<span>/月</span></div>
+                    <div class="price-desc">适合多系统复杂环境</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 7×24小时专属支持</li>
+                        <li><i class="fas fa-check"></i> 实时备份+多地容灾</li>
+                        <li><i class="fas fa-check"></i> CI/CD流水线搭建</li>
+                        <li><i class="fas fa-check"></i> 容器化部署支持</li>
+                        <li><i class="fas fa-check"></i> 安全加固+等保支持</li>
+                        <li><i class="fas fa-check"></i> 性能调优+容量规划</li>
+                        <li><i class="fas fa-check"></i> 专属技术顾问</li>
+                        <li><i class="fas fa-check"></i> SLA 99.9%保障</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">立即咨询</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design Pricing -->
+    <div class="pricing-section" id="design-pricing">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Basic -->
+                <div class="pricing-card">
+                    <h3>基础设计</h3>
+                    <div class="price">¥5,000<span>起</span></div>
+                    <div class="price-desc">适合品牌视觉基础需求</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Logo设计</li>
+                        <li><i class="fas fa-check"></i> 基础VI规范</li>
+                        <li><i class="fas fa-check"></i> 名片/宣传单页</li>
+                        <li><i class="fas fa-check"></i> 3次修改</li>
+                        <li class="disabled"><i class="fas fa-times"></i> UI界面设计</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 数据大屏</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 交互原型</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">立即咨询</a>
+                </div>
+
+                <!-- Pro -->
+                <div class="pricing-card popular">
+                    <h3>专业设计</h3>
+                    <div class="price">¥20,000<span>起</span></div>
+                    <div class="price-desc">适合产品UI/UX设计</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 完整VI系统</li>
+                        <li><i class="fas fa-check"></i> UI界面设计（≤20页）</li>
+                        <li><i class="fas fa-check"></i> 交互原型</li>
+                        <li><i class="fas fa-check"></i> 设计规范文档</li>
+                        <li><i class="fas fa-check"></i> 切图标注</li>
+                        <li><i class="fas fa-check"></i> 5次修改</li>
+                        <li class="disabled"><i class="fas fa-times"></i> 数据大屏</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">立即咨询</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <h3>企业设计</h3>
+                    <div class="price">¥50,000<span>起</span></div>
+                    <div class="price-desc">适合大屏可视化项目</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 完整品牌VI体系</li>
+                        <li><i class="fas fa-check"></i> 全端UI设计</li>
+                        <li><i class="fas fa-check"></i> 数据可视化大屏</li>
+                        <li><i class="fas fa-check"></i> 3D效果/动效设计</li>
+                        <li><i class="fas fa-check"></i> 设计系统搭建</li>
+                        <li><i class="fas fa-check"></i> 无限修改</li>
+                        <li><i class="fas fa-check"></i> 品牌资产管理</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">立即咨询</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SaaS Pricing -->
+    <section class="saas-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>SaaS增值服务</h2>
+                <p>按月订阅，持续享受专业服务</p>
+            </div>
+            <div class="saas-grid">
+                <div class="saas-card">
+                    <h4>启航版</h4>
+                    <div class="saas-price">¥500<span>/月</span></div>
+                    <div class="saas-desc">适合个人开发者/小团队</div>
+                    <ul class="saas-features">
+                        <li><i class="fas fa-check"></i> 1个项目托管</li>
+                        <li><i class="fas fa-check"></i> 基础监控告警</li>
+                        <li><i class="fas fa-check"></i> 每周备份</li>
+                        <li><i class="fas fa-check"></i> 工作日响应</li>
+                        <li><i class="fas fa-check"></i> 5GB存储空间</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-sm">开始使用</a>
+                </div>
+
+                <div class="saas-card highlight">
+                    <h4>成长版</h4>
+                    <div class="saas-price">¥1,500<span>/月</span></div>
+                    <div class="saas-desc">适合中小企业</div>
+                    <ul class="saas-features">
+                        <li><i class="fas fa-check"></i> 5个项目托管</li>
+                        <li><i class="fas fa-check"></i> 7×24小时监控</li>
+                        <li><i class="fas fa-check"></i> 每日备份+异地容灾</li>
+                        <li><i class="fas fa-check"></i> 2小时应急响应</li>
+                        <li><i class="fas fa-check"></i> 50GB存储空间</li>
+                        <li><i class="fas fa-check"></i> 月度巡检报告</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary btn-sm">开始使用</a>
+                </div>
+
+                <div class="saas-card">
+                    <h4>旗舰版</h4>
+                    <div class="saas-price">¥4,000<span>/月</span></div>
+                    <div class="saas-desc">适合成长型企业</div>
+                    <ul class="saas-features">
+                        <li><i class="fas fa-check"></i> 无限项目托管</li>
+                        <li><i class="fas fa-check"></i> 7×24小时专属支持</li>
+                        <li><i class="fas fa-check"></i> 实时备份+多地容灾</li>
+                        <li><i class="fas fa-check"></i> 1小时应急响应</li>
+                        <li><i class="fas fa-check"></i> 200GB存储空间</li>
+                        <li><i class="fas fa-check"></i> CI/CD支持</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-sm">开始使用</a>
+                </div>
+
+                <div class="saas-card">
+                    <h4>定制版</h4>
+                    <div class="saas-price">联系我们</div>
+                    <div class="saas-desc">适合大型企业</div>
+                    <ul class="saas-features">
+                        <li><i class="fas fa-check"></i> 完全定制化方案</li>
+                        <li><i class="fas fa-check"></i> 私有化部署支持</li>
+                        <li><i class="fas fa-check"></i> 专属技术团队</li>
+                        <li><i class="fas fa-check"></i> SLA 99.99%保障</li>
+                        <li><i class="fas fa-check"></i> 定制安全方案</li>
+                        <li><i class="fas fa-check"></i> 培训与文档支持</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-sm">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>快速报价计算器</h2>
+                <p>填写需求，获取预估报价</p>
+            </div>
+            <div class="calculator-wrapper">
+                <div class="calculator-form">
+                    <h3>填写项目信息</h3>
+                    <form id="pricingCalc">
+                        <div class="form-group">
+                            <label for="serviceType">项目类型</label>
+                            <select id="serviceType" name="serviceType">
+                                <option value="">请选择</option>
+                                <option value="web">企业官网/展示站</option>
+                                <option value="miniapp">微信小程序</option>
+                                <option value="app">移动APP</option>
+                                <option value="system">管理系统（ERP/CRM）</option>
+                                <option value="ai">AI工具/数据系统</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="complexity">复杂程度</label>
+                            <select id="complexity" name="complexity">
+                                <option value="">请选择</option>
+                                <option value="simple">简单（基础功能）</option>
+                                <option value="medium">中等（标准功能）</option>
+                                <option value="complex">复杂（定制化需求）</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">期望周期</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">请选择</option>
+                                <option value="urgent">紧急（加急费30%）</option>
+                                <option value="normal">正常（标准周期）</option>
+                                <option value="flexible">灵活（可适当延长）</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">预算范围（选填）</label>
+                            <select id="budget" name="budget">
+                                <option value="">请选择</option>
+                                <option value="1-3">1-3万</option>
+                                <option value="3-5">3-5万</option>
+                                <option value="5-10">5-10万</option>
+                                <option value="10-20">10-20万</option>
+                                <option value="20+">20万以上</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">获取预估报价</button>
+                    </form>
+                </div>
+                <div class="price-result">
+                    <h3>预估报价</h3>
+                    <div id="priceResult">
+                        <div class="price-estimate">
+                            <span class="price-label">请填写左侧信息</span>
+                            <span class="price-value">--</span>
+                            <span class="price-note">* 最终报价以需求评估为准</span>
+                        </div>
+                    </div>
+                    <div class="price-breakdown">
+                        <h4>报价说明</h4>
+                        <div class="breakdown-item">
+                            <span>需求分析</span>
+                            <span>免费</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>方案设计</span>
+                            <span>免费</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>开发费用</span>
+                            <span>按需报价</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>测试验收</span>
+                            <span>包含</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>部署上线</span>
+                            <span>包含</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="pricing-faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题</h2>
+                <p>关于报价和合作的常见问题</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>报价包含哪些内容？</h4>
+                    <p>报价包含需求分析、方案设计、开发实现、测试验收、部署上线全流程服务。具体包含内容以合同约定为准。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>可以分期付款吗？</h4>
+                    <p>支持分期付款。通常采用"3-3-3-1"模式：签约30%、中期30%、验收30%、质保期满10%。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>项目周期多久？</h4>
+                    <p>根据项目复杂度而定。简单项目2-4周，中等项目1-2个月，复杂项目3-6个月。具体时间在需求评估后给出。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>源码归谁所有？</h4>
+                    <p>企业版项目源码完全归客户所有。基础版和专业版项目，源码在付清全款后交付。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>运维服务如何收费？</h4>
+                    <p>运维服务按月收费，支持年付优惠。基础运维800元/月起，包含监控、备份、安全更新等基础服务。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>如何获取正式报价？</h4>
+                    <p>联系我们进行免费需求咨询，我们会在1-2个工作日内提供详细的需求评估和正式报价方案。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="services.html#dev">软件定制开发</a></li>
+                        <li><a href="services.html#ops">运维托管</a></li>
+                        <li><a href="services.html#design">UI/UX设计</a></li>
+                        <li><a href="services.html#design">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <script async src="js/main.js"></script>
+    <script>
+        // 报价选项卡切换
+        function switchTab(type) {
+            // 更新按钮状态
+            document.querySelectorAll('.pricing-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // 更新内容显示
+            document.querySelectorAll('.pricing-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(type + '-pricing').classList.add('active');
+        }
+
+        // 报价计算器
+        const pricingCalc = document.getElementById('pricingCalc');
+        if (pricingCalc) {
+            pricingCalc.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculatePrice();
+            });
+
+            // 实时计算
+            const inputs = pricingCalc.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', calculatePrice);
+            });
+        }
+
+        function calculatePrice() {
+            const serviceType = document.getElementById('serviceType')?.value;
+            const complexity = document.getElementById('complexity')?.value;
+            const timeline = document.getElementById('timeline')?.value;
+
+            if (!serviceType || !complexity || !timeline) return;
+
+            // 基础价格表 (单位: 元)
+            const basePrice = {
+                'web': { 'simple': 15000, 'medium': 50000, 'complex': 150000 },
+                'miniapp': { 'simple': 20000, 'medium': 60000, 'complex': 180000 },
+                'app': { 'simple': 30000, 'medium': 80000, 'complex': 250000 },
+                'system': { 'simple': 50000, 'medium': 120000, 'complex': 350000 },
+                'ai': { 'simple': 80000, 'medium': 200000, 'complex': 500000 }
+            };
+
+            // 时间系数
+            const timelineFactor = {
+                'urgent': 1.3,
+                'normal': 1.0,
+                'flexible': 0.9
+            };
+
+            const base = basePrice[serviceType]?.[complexity] || 50000;
+            const factor = timelineFactor[timeline] || 1.0;
+            const estimated = Math.round(base * factor);
+
+            // 更新显示
+            const resultEl = document.getElementById('priceResult');
+            if (resultEl) {
+                resultEl.innerHTML = `
+                    <div class="price-estimate">
+                        <span class="price-label">预估费用</span>
+                        <span class="price-value">¥${estimated.toLocaleString()}</span>
+                        <span class="price-note">* 最终报价以需求评估为准</span>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

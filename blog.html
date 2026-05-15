@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>技术博客 - 寅禾星科技</title>
+    <meta name="description" content="北京寅禾星科技技术博客，分享软件开发、运维托管、DevOps、UI设计相关的技术文章和行业实践见解。">
+    <meta name="keywords" content="技术博客,软件开发,运维,DevOps,UI设计,IT技术,寅禾星科技">
+    <meta property="og:title" content="寅禾星科技技术博客 - 软件开发运维设计行业资讯">
+    <meta property="og:description" content="分享软件开发、运维托管、DevOps、UI设计相关技术文章和行业见解">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/blog.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/blog.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-filter {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .blog-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .blog-content {
+            padding: 24px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-category {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .blog-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-content h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-content h3 a:hover {
+            color: var(--primary);
+        }
+
+        .blog-content p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .author-name {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .blog-stats {
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .blog-stats span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 精选文章 */
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-lg);
+            color: white;
+        }
+
+        .featured-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .featured-content p {
+            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .featured-image {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* 标签云 */
+        .tags-section {
+            padding: 60px 0;
+            background: var(--bg-light);
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .tag-item {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .tag-item:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="blog.html" class="active">博客</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>技术博客</h1>
+            <p>分享技术见解，助力企业数字化转型</p>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 技术博客
+            </div>
+        </div>
+    </div>
+
+    <!-- 精选文章 -->
+    <section class="section">
+        <div class="container">
+            <div class="featured-post fade-in">
+                <div class="featured-content">
+                    <span class="blog-category">精选文章</span>
+                    <h2>2025年企业数字化转型趋势与实践指南</h2>
+                    <p>随着AI、云原生、低代码等技术的成熟，2025年企业数字化转型迎来新的机遇。本文从技术选型、架构设计、团队建设等维度，分享我们的实践经验和思考。</p>
+                    <a href="blog-detail.html" class="btn btn-primary">阅读全文</a>
+                </div>
+                <div class="featured-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+
+            <!-- 筛选按钮 -->
+            <div class="blog-filter">
+                <button class="filter-btn active" data-filter="all">全部文章</button>
+                <button class="filter-btn" data-filter="dev">技术开发</button>
+                <button class="filter-btn" data-filter="ops">运维实践</button>
+                <button class="filter-btn" data-filter="design">设计分享</button>
+                <button class="filter-btn" data-filter="ai">AI应用</button>
+            </div>
+
+            <!-- 文章列表 -->
+            <div class="blog-grid">
+                <div class="blog-card fade-in" data-type="dev">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #0A2B4E 0%, #0EA5E9 100%);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">技术开发</span>
+                            <span><i class="fas fa-calendar"></i> 2025-01-15</span>
+                        </div>
+                        <h3><a href="blog-detail.html">Vue 3 + TypeScript 企业级项目最佳实践</a></h3>
+                        <p>从项目搭建、状态管理、组件设计到性能优化，分享我们在多个企业项目中总结的Vue 3开发经验...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <span class="author-name">技术团队</span>
+                            </div>
+                            <div class="blog-stats">
+                                <span><i class="fas fa-eye"></i> 1.2k</span>
+                                <span><i class="fas fa-comment"></i> 28</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in" data-type="ops">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">运维实践</span>
+                            <span><i class="fas fa-calendar"></i> 2025-01-10</span>
+                        </div>
+                        <h3><a href="blog-detail.html">Docker + K8s 容器化部署实战指南</a></h3>
+                        <p>容器化已成为现代应用部署的标准方式。本文从Docker基础到K8s集群管理，手把手教你搭建生产环境...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <span class="author-name">运维团队</span>
+                            </div>
+                            <div class="blog-stats">
+                                <span><i class="fas fa-eye"></i> 856</span>
+                                <span><i class="fas fa-comment"></i> 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in" data-type="design">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">设计分享</span>
+                            <span><i class="fas fa-calendar"></i> 2025-01-05</span>
+                        </div>
+                        <h3><a href="blog-detail.html">数据可视化大屏设计原则与案例解析</a></h3>
+                        <p>好的数据大屏不仅要好看，更要让数据说话。分享我们在智慧园区、电商运营等项目中的大屏设计经验...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <span class="author-name">设计团队</span>
+                            </div>
+                            <div class="blog-stats">
+                                <span><i class="fas fa-eye"></i> 1.5k</span>
+                                <span><i class="fas fa-comment"></i> 32</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in" data-type="ai">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">AI应用</span>
+                            <span><i class="fas fa-calendar"></i> 2024-12-28</span>
+                        </div>
+                        <h3><a href="blog-detail.html">LLM应用开发：从Prompt到RAG的实践之路</a></h3>
+                        <p>大语言模型正在改变软件开发的方式。分享我们如何将LLM应用到简历解析、智能客服等实际业务场景...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <span class="author-name">技术团队</span>
+                            </div>
+                            <div class="blog-stats">
+                                <span><i class="fas fa-eye"></i> 2.1k</span>
+                                <span><i class="fas fa-comment"></i> 45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in" data-type="dev">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">技术开发</span>
+                            <span><i class="fas fa-calendar"></i> 2024-12-20</span>
+                        </div>
+                        <h3><a href="blog-detail.html">MySQL性能优化：从慢查询到索引设计</a></h3>
+                        <p>数据库性能直接影响应用体验。分享我们在高并发场景下的MySQL优化经验，包括索引设计、查询优化等...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <span class="author-name">技术团队</span>
+                            </div>
+                            <div class="blog-stats">
+                                <span><i class="fas fa-eye"></i> 980</span>
+                                <span><i class="fas fa-comment"></i> 22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-card fade-in" data-type="ops">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">运维实践</span>
+                            <span><i class="fas fa-calendar"></i> 2024-12-15</span>
+                        </div>
+                        <h3><a href="blog-detail.html">服务器安全加固：10个必做的安全配置</a></h3>
+                        <p>安全是运维的重中之重。分享10个实用的服务器安全配置，帮助你构建更安全的生产环境...</p>
+                        <div class="blog-footer">
+                            <div class="blog-author">
+                                <div class="author-avatar"><i class="fas fa-user"></i></div>
+                                <span class="author-name">运维团队</span>
+                            </div>
+                            <div class="blog-stats">
+                                <span><i class="fas fa-eye"></i> 1.1k</span>
+                                <span><i class="fas fa-comment"></i> 18</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <div style="text-align: center; margin-top: 40px;">
+                <div style="display: inline-flex; gap: 8px;">
+                    <button class="btn btn-outline btn-sm" disabled>上一页</button>
+                    <button class="btn btn-primary btn-sm">1</button>
+                    <button class="btn btn-outline btn-sm">2</button>
+                    <button class="btn btn-outline btn-sm">3</button>
+                    <button class="btn btn-outline btn-sm">下一页</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 标签云 -->
+    <section class="tags-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>热门标签</h2>
+                <p>探索更多技术话题</p>
+            </div>
+            <div class="tags-cloud">
+                <a href="#" class="tag-item">Vue.js</a>
+                <a href="#" class="tag-item">React</a>
+                <a href="#" class="tag-item">Node.js</a>
+                <a href="#" class="tag-item">Python</a>
+                <a href="#" class="tag-item">Docker</a>
+                <a href="#" class="tag-item">Kubernetes</a>
+                <a href="#" class="tag-item">MySQL</a>
+                <a href="#" class="tag-item">Redis</a>
+                <a href="#" class="tag-item">CI/CD</a>
+                <a href="#" class="tag-item">微服务</a>
+                <a href="#" class="tag-item">云原生</a>
+                <a href="#" class="tag-item">AI</a>
+                <a href="#" class="tag-item">大模型</a>
+                <a href="#" class="tag-item">UI设计</a>
+                <a href="#" class="tag-item">数据可视化</a>
+                <a href="#" class="tag-item">性能优化</a>
+                <a href="#" class="tag-item">安全</a>
+                <a href="#" class="tag-item">小程序</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="service-dev.html">软件定制开发</a></li>
+                        <li><a href="service-ops.html">运维托管</a></li>
+                        <li><a href="service-design.html">UI/UX设计</a></li>
+                        <li><a href="service-design.html">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                        <li><a href="blog.html">技术博客</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 在线客服 -->
+    <div class="online-service">
+        <div class="service-popup" id="servicePopup">
+            <h4>在线咨询</h4>
+            <p>选择您方便的方式联系我们</p>
+            <div class="service-options">
+                <a href="#" class="service-option">
+                    <i class="fab fa-weixin"></i>
+                    <span>微信扫码咨询</span>
+                </a>
+                <a href="tel:13241143670" class="service-option">
+                    <i class="fas fa-phone"></i>
+                    <span>电话咨询</span>
+                </a>
+                <a href="mailto:contact@yinhexing.com" class="service-option">
+                    <i class="fas fa-envelope"></i>
+                    <span>邮件咨询</span>
+                </a>
+            </div>
+        </div>
+        <button class="service-btn" id="serviceBtn">
+            <i class="fas fa-headset"></i>
+        </button>
+    </div>
+
+    <script async src="js/main.js"></script>
+    <script>
+        // 博客筛选
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.type === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

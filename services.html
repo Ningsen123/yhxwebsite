@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="css/style.css" as="style">
+    <title>寅禾星科技一站式IT服务 - 软件开发运维托管UI设计</title>
+    <meta name="description" content="北京寅禾星科技提供软件定制开发、运维托管、DevOps、UI/UX设计一站式IT技术服务，从需求分析到上线运维全生命周期交付。">
+    <meta name="keywords" content="IT服务,软件开发,运维托管,UI设计,DevOps,北京IT服务公司,寅禾星科技">
+    <meta property="og:title" content="寅禾星科技一站式IT服务 - 软件开发运维托管UI设计">
+    <meta property="og:description" content="从需求分析到上线运维全生命周期交付，软件开发运维UI设计一站式IT服务">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yinhexing.com/services.html">
+    <meta property="og:image" content="https://www.yinhexing.com/images/og-cover.png">
+    <link rel="canonical" href="https://www.yinhexing.com/services.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .service-detail {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service-detail:last-child {
+            border-bottom: none;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .service-content.reverse {
+            direction: rtl;
+        }
+
+        .service-content.reverse > * {
+            direction: ltr;
+        }
+
+        .service-info h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .service-info > p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .feature-list i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .service-visual {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .service-visual i {
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .process-section {
+            padding: 80px 0;
+            background: var(--secondary);
+            color: white;
+        }
+
+        .process-section .section-title h2 {
+            color: white;
+        }
+
+        .process-section .section-title p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -12px;
+            width: 24px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .process-step h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tech-stack {
+            padding: 80px 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .tech-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .tech-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .tech-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .tech-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .cta-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        @media (max-width: 992px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+
+            .service-content.reverse {
+                direction: ltr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">寅</div>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html" class="active">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html">案例</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>我们的服务</h1>
+            <p>从开发到运维，从设计到落地，全栈技术能力一站式交付</p>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a> / 服务
+            </div>
+        </div>
+    </div>
+
+    <!-- Software Development -->
+    <section class="service-detail" id="dev">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-info">
+                    <h2>软件定制开发</h2>
+                    <p>从需求分析到上线运维，全生命周期交付。我们拥有严谨的前后端开发能力，从原型到上线，每个功能都经过测试。无论是管理后台、小程序，还是AI数据处理工具，都能按时交付。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Web应用开发（React/Vue/Angular）</li>
+                        <li><i class="fas fa-check-circle"></i> 移动端APP开发（iOS/Android/Flutter）</li>
+                        <li><i class="fas fa-check-circle"></i> 微信小程序/公众号开发</li>
+                        <li><i class="fas fa-check-circle"></i> 企业后台管理系统（ERP/CRM/OA）</li>
+                        <li><i class="fas fa-check-circle"></i> AI工具与数据处理系统</li>
+                        <li><i class="fas fa-check-circle"></i> API接口开发与系统集成</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-primary">查看报价</a>
+                </div>
+                <div class="service-visual">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Operations -->
+    <section class="service-detail" id="ops">
+        <div class="container">
+            <div class="service-content reverse">
+                <div class="service-info">
+                    <h2>运维托管 & DevOps</h2>
+                    <p>再好的软件也需要日夜守护。我们提供"保姆级"运维服务：服务器监控、自动备份、安全加固、CI/CD流水线。您只管业务增长，技术稳定交给我们。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 7×24小时服务器监控与告警</li>
+                        <li><i class="fas fa-check-circle"></i> 每周自动备份+异地灾备</li>
+                        <li><i class="fas fa-check-circle"></i> 安全漏洞扫描与修复</li>
+                        <li><i class="fas fa-check-circle"></i> 性能优化与日志分析</li>
+                        <li><i class="fas fa-check-circle"></i> CI/CD流水线搭建</li>
+                        <li><i class="fas fa-check-circle"></i> 容器化部署（Docker/K8s）</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-primary">查看报价</a>
+                </div>
+                <div class="service-visual">
+                    <i class="fas fa-server"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design -->
+    <section class="service-detail" id="design">
+        <div class="container">
+            <div class="service-content">
+                <div class="service-info">
+                    <h2>设计 & 数字化大屏</h2>
+                    <p>好的设计让用户愿意停留，清晰的大屏让决策一目了然。我们提供UI/UX设计、品牌视觉、实时数据可视化看板，帮助客户讲好数字故事。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> UI/UX界面设计</li>
+                        <li><i class="fas fa-check-circle"></i> 品牌VI视觉设计</li>
+                        <li><i class="fas fa-check-circle"></i> 数据可视化大屏</li>
+                        <li><i class="fas fa-check-circle"></i> 智慧园区/工厂看板</li>
+                        <li><i class="fas fa-check-circle"></i> 交互原型设计</li>
+                        <li><i class="fas fa-check-circle"></i> 设计系统搭建</li>
+                    </ul>
+                    <a href="pricing.html" class="btn btn-primary">查看报价</a>
+                </div>
+                <div class="service-visual">
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务流程</h2>
+                <p>标准化流程，确保项目高质量交付</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h4>需求沟通</h4>
+                    <p>深入了解业务场景</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h4>方案设计</h4>
+                    <p>技术选型与架构设计</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>UI设计</h4>
+                    <p>界面原型与视觉设计</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4>开发测试</h4>
+                    <p>敏捷开发与质量保障</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>部署上线</h4>
+                    <p>环境配置与正式发布</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>运维保障</h4>
+                    <p>持续监控与技术支持</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-title">
+                <h2>技术栈</h2>
+                <p>主流技术，稳定可靠</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fab fa-java"></i>
+                    <h4>Java</h4>
+                    <p>Spring Boot / 微服务</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-python"></i>
+                    <h4>Python</h4>
+                    <p>Django / Flask / FastAPI</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-node-js"></i>
+                    <h4>Node.js</h4>
+                    <p>Express / NestJS</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-vuejs"></i>
+                    <h4>Vue.js</h4>
+                    <p>Vue 3 / Nuxt / Element</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-react"></i>
+                    <h4>React</h4>
+                    <p>Next.js / Ant Design</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-docker"></i>
+                    <h4>Docker</h4>
+                    <p>容器化部署与编排</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-database"></i>
+                    <h4>数据库</h4>
+                    <p>MySQL / PostgreSQL / Redis</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-aws"></i>
+                    <h4>云服务</h4>
+                    <p>阿里云 / 腾讯云 / 华为云</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>需要定制化服务？</h2>
+            <p>联系我们，获取专属技术方案和报价</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="pricing.html" class="btn btn-primary">查看报价方案</a>
+                <a href="contact.html" class="btn btn-outline">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">寅</div>
+                        <span class="logo-text">寅禾星科技</span>
+                    </a>
+                    <p>开发 · 运维 · 设计<br>一站式技术伙伴</p>
+                </div>
+                <div class="footer-column">
+                    <h4>服务</h4>
+                    <ul>
+                        <li><a href="services.html#dev">软件定制开发</a></li>
+                        <li><a href="services.html#ops">运维托管</a></li>
+                        <li><a href="services.html#design">UI/UX设计</a></li>
+                        <li><a href="services.html#design">数据大屏</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>公司</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="pricing.html">报价方案</a></li>
+                        <li><a href="contact.html">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <!-- TODO: 替换为实际ICP备案号 -->
+                <p>Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+
+    <script async src="js/main.js"></script>
+</body>
+</html>
