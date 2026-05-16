@@ -1,10 +1,13 @@
 /* ========================================
-寅禾星科技 - 全局样式 v2
+寅禾星科技 - 全局样式 v3 (Design Overhaul)
 ======================================== */
 
 :root {
-    --primary: #0EA5E9;
-    --primary-dark: #0284C7;
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --primary-light: #3B82F6;
+    --gradient: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+    --gradient-accent: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #2563EB 100%);
     --secondary: #0A2B4E;
     --accent: #F97316;
     --success: #10B981;
@@ -22,7 +25,9 @@
     --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
     --radius: 12px;
     --radius-lg: 16px;
+    --radius-xl: 20px;
     --transition: all 0.3s ease;
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -40,12 +45,13 @@ body {
     color: var(--text-dark);
     background: var(--bg-white);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 32px;
 }
 
 /* ========================================
@@ -56,21 +62,22 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
     transition: var(--transition);
 }
 
 .navbar.scrolled {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,7 +95,7 @@ body {
 .logo-icon {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    background: var(--gradient);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -116,6 +123,23 @@ body {
     font-weight: 500;
     font-size: 15px;
     transition: var(--transition);
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 .nav-menu a:hover {
@@ -126,17 +150,38 @@ body {
     color: var(--primary);
 }
 
+.nav-menu a.active::after {
+    width: 100%;
+}
+
 .nav-cta {
-    background: var(--primary);
+    background: var(--gradient) !important;
     color: white !important;
     padding: 10px 24px;
-    border-radius: 8px;
+    border-radius: 12px !important;
     font-weight: 600;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-cta:hover::before {
+    left: 100%;
 }
 
 .nav-cta:hover {
-    background: var(--primary-dark);
     color: white !important;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
 }
 
 .mobile-toggle {
@@ -152,27 +197,68 @@ body {
 页面头部
 ======================================== */
 .page-header {
-    padding: 140px 0 60px;
-    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+    padding: 160px 0 80px;
+    background: linear-gradient(135deg, var(--secondary) 0%, #1e3a5f 40%, var(--primary-dark) 100%);
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+    animation: heroFloat 20s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -2%) rotate(1deg); }
+    66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
 }
 
 .page-header h1 {
-    font-size: 42px;
-    font-weight: 700;
+    font-size: 56px;
+    font-weight: 800;
     margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    position: relative;
+    z-index: 1;
+    animation: heroSlideUp 0.8s ease-out both;
 }
 
 .page-header p {
     font-size: 18px;
     opacity: 0.9;
+    position: relative;
+    z-index: 1;
+    animation: heroSlideUp 0.8s ease-out 0.15s both;
+}
+
+@keyframes heroSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .breadcrumb {
     margin-top: 20px;
     font-size: 14px;
     opacity: 0.8;
+    position: relative;
+    z-index: 1;
 }
 
 .breadcrumb a {
@@ -188,40 +274,65 @@ body {
 通用区块
 ======================================== */
 .section {
-    padding: 100px 0;
+    padding: 120px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 64px;
 }
 
 .section-title h2 {
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 800;
     color: var(--secondary);
     margin-bottom: 12px;
+    letter-spacing: -0.02em;
 }
 
 .section-title p {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* ========================================
 按钮
 ======================================== */
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 32px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 600;
     text-decoration: none;
-    transition: var(--transition);
+    transition: var(--transition-slow);
     cursor: pointer;
     border: none;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    gap: 8px;
+}
+
+/* Shine effect for gradient buttons */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-outline {
@@ -233,17 +344,18 @@ body {
 .btn-outline:hover {
     background: var(--secondary);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary {
-    background: var(--primary);
+    background: var(--gradient);
     color: white;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
 }
 
 .btn-secondary {
@@ -253,6 +365,8 @@ body {
 
 .btn-secondary:hover {
     background: #0d3a63;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-accent {
@@ -262,6 +376,8 @@ body {
 
 .btn-accent:hover {
     background: #ea6508;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
 }
 
 .btn-success {
@@ -271,6 +387,8 @@ body {
 
 .btn-success:hover {
     background: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
 }
 
 .btn-sm {
@@ -281,21 +399,59 @@ body {
 .btn-lg {
     padding: 18px 40px;
     font-size: 18px;
+    border-radius: 14px;
+}
+
+/* CTA gradient animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-cta-animated {
+    background: linear-gradient(270deg, #2563EB, #7C3AED, #2563EB);
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+    color: white;
 }
 
 /* ========================================
-卡片
+卡片 (Glass Morphism)
 ======================================== */
 .card {
-    background: var(--bg-white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+    border-radius: var(--radius-xl);
+    transition: var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top accent line */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 /* ========================================
@@ -319,10 +475,12 @@ body {
     width: 100%;
     padding: 12px 16px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 15px;
     font-family: inherit;
     transition: var(--transition);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
 }
 
 .form-group input:focus,
@@ -330,7 +488,7 @@ body {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 .form-group textarea {
@@ -362,7 +520,7 @@ body {
     right: 30px;
     width: 48px;
     height: 48px;
-    background: var(--primary);
+    background: var(--gradient);
     color: white;
     border: none;
     border-radius: 50%;
@@ -371,10 +529,10 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition);
+    transition: var(--transition-slow);
     z-index: 999;
 }
 
@@ -384,8 +542,8 @@ body {
 }
 
 .back-to-top:hover {
-    background: var(--primary-dark);
-    transform: translateY(-4px);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
 }
 
 /* ========================================
@@ -401,7 +559,7 @@ body {
 .service-btn {
     width: 56px;
     height: 56px;
-    background: var(--success);
+    background: var(--gradient);
     color: white;
     border: none;
     border-radius: 50%;
@@ -410,12 +568,13 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+    transition: var(--transition-slow);
 }
 
 .service-btn:hover {
     transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
 }
 
 .service-popup {
@@ -423,15 +582,28 @@ body {
     bottom: 70px;
     left: 0;
     background: white;
-    border-radius: var(--radius);
+    border-radius: var(--radius-xl);
     padding: 24px;
     box-shadow: var(--shadow-xl);
     width: 280px;
     display: none;
+    backdrop-filter: blur(12px);
 }
 
 .service-popup.active {
     display: block;
+    animation: popupSlideUp 0.3s ease-out;
+}
+
+@keyframes popupSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .service-popup h4 {
@@ -459,7 +631,7 @@ body {
     gap: 12px;
     padding: 12px;
     background: var(--bg-light);
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
     color: var(--text-dark);
     transition: var(--transition);
@@ -480,17 +652,59 @@ body {
 }
 
 /* ========================================
-加载动画
+加载动画 / Scroll Animations
 ======================================== */
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Staggered scroll reveal */
+.fade-in.delay-1 { transition-delay: 0.08s; }
+.fade-in.delay-2 { transition-delay: 0.16s; }
+.fade-in.delay-3 { transition-delay: 0.24s; }
+.fade-in.delay-4 { transition-delay: 0.32s; }
+.fade-in.delay-5 { transition-delay: 0.40s; }
+.fade-in.delay-6 { transition-delay: 0.48s; }
+
+/* Slide-in variants */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left.visible,
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-scale.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* ========================================
@@ -502,24 +716,32 @@ body {
 
 /* 无JavaScript时显示所有内容 */
 noscript + .fade-in,
-.fade-in {
+.fade-in,
+noscript + .fade-in-left,
+.fade-in-left,
+noscript + .fade-in-right,
+.fade-in-right,
+noscript + .fade-scale,
+.fade-scale {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
 }
+
 /* ========================================
 底部
 ======================================== */
 .footer {
     background: var(--secondary);
     color: white;
-    padding: 60px 0 30px;
+    padding: 80px 0 30px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 48px;
+    margin-bottom: 48px;
 }
 
 .footer-brand .logo {
@@ -608,16 +830,24 @@ noscript + .fade-in,
 }
 
 @media (max-width: 576px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .nav-container {
+        padding: 0 20px;
+    }
+
     .page-header {
-        padding: 120px 0 40px;
+        padding: 130px 0 50px;
     }
 
     .page-header h1 {
-        font-size: 28px;
+        font-size: 32px;
     }
 
     .section {
-        padding: 60px 0;
+        padding: 72px 0;
     }
 
     .section-title h2 {
@@ -626,6 +856,7 @@ noscript + .fade-in,
 
     .footer-content {
         grid-template-columns: 1fr;
+        gap: 32px;
     }
 
     .footer-bottom {
