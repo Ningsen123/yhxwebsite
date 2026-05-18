@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寅禾星科技 Logo 设计</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-item h3 {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        .logo-bg-white {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .logo-bg-dark {
+            background: #1a1a2e;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo-bg-blue {
+            background: linear-gradient(135deg, #0A2B4E 0%, #1E40AF 100%);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo-bg-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-showcase">
+        <!-- Logo 1: 星星 + 寅 字 -->
+        <div class="logo-item">
+            <div class="logo-bg-white">
+                <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- 马赛克纹理 -->
+                        <pattern id="mosaic1" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                            <rect width="8" height="8" fill="#0A2B4E"/>
+                            <rect x="0" y="0" width="4" height="4" fill="#1E40AF" opacity="0.8"/>
+                            <rect x="4" y="4" width="4" height="4" fill="#3B82F6" opacity="0.6"/>
+                            <rect x="4" y="0" width="4" height="4" fill="#2563EB" opacity="0.7"/>
+                            <rect x="0" y="4" width="4" height="4" fill="#1D4ED8" opacity="0.9"/>
+                        </pattern>
+                        <!-- 渐变 -->
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#7C3AED;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1"/>
+                        </linearGradient>
+                        <!-- 光泽效果 -->
+                        <linearGradient id="shine1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:white;stop-opacity:0.4"/>
+                            <stop offset="50%" style="stop-color:white;stop-opacity:0"/>
+                            <stop offset="100%" style="stop-color:white;stop-opacity:0.2"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- 背景圆角矩形 -->
+                    <rect x="10" y="10" width="100" height="100" rx="24" fill="url(#mosaic1)"/>
+                    <!-- 星星形状 -->
+                    <path d="M60 20 L68 45 L95 45 L73 60 L80 85 L60 70 L40 85 L47 60 L25 45 L52 45 Z" 
+                          fill="url(#grad1)" stroke="white" stroke-width="2"/>
+                    <!-- 光泽覆盖 -->
+                    <path d="M60 20 L68 45 L95 45 L73 60 L80 85 L60 70 L40 85 L47 60 L25 45 L52 45 Z" 
+                          fill="url(#shine1)"/>
+                    <!-- 高光点 -->
+                    <circle cx="45" cy="40" r="4" fill="white" opacity="0.8"/>
+                    <circle cx="70" cy="55" r="3" fill="white" opacity="0.6"/>
+                    <circle cx="55" cy="70" r="2" fill="white" opacity="0.5"/>
+                </svg>
+            </div>
+            <h3>方案1: 星星</h3>
+        </div>
+
+        <!-- Logo 2: 寅 字 3D -->
+        <div class="logo-item">
+            <div class="logo-bg-blue">
+                <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="mosaic2" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                            <rect width="6" height="6" fill="#1E40AF"/>
+                            <rect x="0" y="0" width="3" height="3" fill="#3B82F6" opacity="0.6"/>
+                            <rect x="3" y="3" width="3" height="3" fill="#60A5FA" opacity="0.4"/>
+                            <rect x="3" y="0" width="3" height="3" fill="#2563EB" opacity="0.5"/>
+                            <rect x="0" y="3" width="3" height="3" fill="#1D4ED8" opacity="0.7"/>
+                        </pattern>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#93C5FD;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#BFDBFE;stop-opacity:1"/>
+                        </linearGradient>
+                        <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+                        </filter>
+                    </defs>
+                    <!-- 背景 -->
+                    <rect x="10" y="10" width="100" height="100" rx="24" fill="url(#mosaic2)"/>
+                    <!-- 3D方块 -->
+                    <g filter="url(#shadow2)">
+                        <path d="M60 25 L90 40 L90 80 L60 95 L30 80 L30 40 Z" fill="url(#grad2)" stroke="white" stroke-width="1.5"/>
+                        <path d="M60 25 L90 40 L60 55 L30 40 Z" fill="white" opacity="0.3"/>
+                        <path d="M90 40 L90 80 L60 95 L60 55 Z" fill="white" opacity="0.1"/>
+                    </g>
+                    <!-- 寅 字 -->
+                    <text x="60" y="68" text-anchor="middle" font-size="28" font-weight="bold" fill="white" font-family="serif">寅</text>
+                </svg>
+            </div>
+            <h3>方案2: 寅字3D</h3>
+        </div>
+
+        <!-- Logo 3: 禾苗/生长 -->
+        <div class="logo-item">
+            <div class="logo-bg-dark">
+                <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="mosaic3" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+                            <rect width="5" height="5" fill="#1a1a2e"/>
+                            <rect x="0" y="0" width="2.5" height="2.5" fill="#2d2d44" opacity="0.8"/>
+                            <rect x="2.5" y="2.5" width="2.5" height="2.5" fill="#3d3d5c" opacity="0.6"/>
+                        </pattern>
+                        <linearGradient id="grad3" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" style="stop-color:#10B981;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#34D399;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#6EE7B7;stop-opacity:1"/>
+                        </linearGradient>
+                        <linearGradient id="grad3b" x1="0%" y1="100%" x2="0%" y2="0%">
+                            <stop offset="0%" style="stop-color:#059669;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#10B981;stop-opacity:1"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="10" width="100" height="100" rx="24" fill="url(#mosaic3)"/>
+                    <!-- 土壤 -->
+                    <ellipse cx="60" cy="90" rx="25" ry="6" fill="#059669" opacity="0.5"/>
+                    <!-- 茎 -->
+                    <path d="M60 90 L60 50" stroke="url(#grad3b)" stroke-width="4" stroke-linecap="round"/>
+                    <!-- 叶子 -->
+                    <path d="M60 70 Q45 55 50 45" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M60 70 Q75 55 70 45" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M60 60 Q42 48 48 38" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M60 60 Q78 48 72 38" stroke="url(#grad3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <!-- 星星 -->
+                    <path d="M60 25 L63 35 L73 35 L65 41 L68 51 L60 45 L52 51 L55 41 L47 35 L57 35 Z" 
+                          fill="url(#grad3)" stroke="white" stroke-width="1"/>
+                    <!-- 高光 -->
+                    <circle cx="55" cy="35" r="2" fill="white" opacity="0.7"/>
+                </svg>
+            </div>
+            <h3>方案3: 生长</h3>
+        </div>
+
+        <!-- Logo 4: YH字母组合 -->
+        <div class="logo-item">
+            <div class="logo-bg-gradient">
+                <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="mosaic4" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+                            <rect width="6" height="6" fill="#667eea"/>
+                            <rect x="0" y="0" width="3" height="3" fill="#764ba2" opacity="0.6"/>
+                            <rect x="3" y="3" width="3" height="3" fill="#8B5CF6" opacity="0.5"/>
+                            <rect x="3" y="0" width="3" height="3" fill="#A78BFA" opacity="0.4"/>
+                            <rect x="0" y="3" width="3" height="3" fill="#7C3AED" opacity="0.7"/>
+                        </pattern>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#E0E7FF;stop-opacity:1"/>
+                            <stop offset="50%" style="stop-color:#C7D2FE;stop-opacity:1"/>
+                            <stop offset="100%" style="stop-color:#A5B4FC;stop-opacity:1"/>
+                        </linearGradient>
+                        <filter id="shadow4">
+                            <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+                        </filter>
+                    </defs>
+                    <rect x="10" y="10" width="100" height="100" rx="24" fill="url(#mosaic4)"/>
+                    <!-- Y 字母 -->
+                    <g filter="url(#shadow4)">
+                        <path d="M30 30 L45 55 L45 85 L55 85 L55 55 L70 30" 
+                              stroke="url(#grad4)" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <!-- H 字母 -->
+                    <g filter="url(#shadow4)">
+                        <path d="M70 30 L70 85 M70 57 L90 57 M90 30 L90 85" 
+                              stroke="url(#grad4)" stroke-width="8" fill="none" stroke-linecap="round"/>
+                    </g>
+                    <!-- 高光 -->
+                    <circle cx="38" cy="38" r="3" fill="white" opacity="0.6"/>
+                    <circle cx="78" cy="45" r="2" fill="white" opacity="0.5"/>
+                </svg>
+            </div>
+            <h3>方案4: YH字母</h3>
+        </div>
+    </div>
+</body>
+</html>
