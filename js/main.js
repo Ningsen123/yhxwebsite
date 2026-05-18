@@ -179,7 +179,7 @@ const data = Object.fromEntries(formData);
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {
-                        showNotification('提交成功！我们会尽快与您联系。', 'success');
+                        showNotification('报价已提交，会有专员和您联系！', 'success');
                         form.reset();
                     } else {
                         showNotification(result.error || '提交失败，请稍后重试', 'error');
@@ -190,9 +190,7 @@ const data = Object.fromEntries(formData);
                     showNotification('网络错误，请稍后重试', 'error');
                 });
 
-// 显示成功提示
-showNotification('提交成功！我们会在1个工作日内与您联系。', 'success');
-form.reset();
+showNotification('报价已提交，会有专员和您联系！', 'success');
 } else {
 showNotification('请填写完整的必填信息', 'error');
 }
