@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yhstar.xin/sitemap.xml
+
+# Crawl-delay (optional, some bots respect this)
+Crawl-delay: 1
+
+# Disallow admin/preview paths if any
+Disallow: /admin/
+Disallow: /*.json$
