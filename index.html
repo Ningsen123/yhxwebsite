@@ -587,15 +587,26 @@
         }
 
         .client-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
             font-size: 24px;
             font-weight: 700;
             color: var(--text-muted);
             transition: var(--transition);
+            opacity: 0.6;
+        }
+
+        .client-logo span {
+            font-size: 12px;
+            font-weight: 500;
         }
 
         .client-logo:hover {
             opacity: 1;
             color: var(--secondary);
+            transform: translateY(-2px);
         }
 
         /* 合作伙伴 */
@@ -736,13 +747,14 @@
     <!-- 客户Logo墙 -->
     <section class="clients-section">
         <div class="container">
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px; font-size: 14px;">已服务客户行业覆盖</p>
             <div class="clients-logos">
-                <div class="client-logo"><i class="fa-solid fa-building"></i></div>
-                <div class="client-logo"><i class="fa-solid fa-industry"></i></div>
-                <div class="client-logo"><i class="fa-solid fa-landmark"></i></div>
-                <div class="client-logo"><i class="fa-solid fa-shop"></i></div>
-                <div class="client-logo"><i class="fa-solid fa-city"></i></div>
-                <div class="client-logo"><i class="fa-solid fa-hospital"></i></div>
+                <div class="client-logo"><i class="fa-solid fa-building"></i><span>科技企业</span></div>
+                <div class="client-logo"><i class="fa-solid fa-industry"></i><span>制造业</span></div>
+                <div class="client-logo"><i class="fa-solid fa-landmark"></i><span>金融机构</span></div>
+                <div class="client-logo"><i class="fa-solid fa-shop"></i><span>零售连锁</span></div>
+                <div class="client-logo"><i class="fa-solid fa-city"></i><span>智慧园区</span></div>
+                <div class="client-logo"><i class="fa-solid fa-hospital"></i><span>医疗健康</span></div>
             </div>
         </div>
     </section>
