@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧园区管理平台 - 案例详情 - 寅禾星科技</title>
+    <meta name="description" content="为北京某科技园区定制3D可视化大屏，对接物联网设备，实时展示人流、能耗、告警事件。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .case-hero { height: 300px; background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .case-content { max-width: 800px; margin: 0 auto; }
+        .case-content h2 { font-size: 24px; font-weight: 700; color: var(--secondary); margin: 40px 0 16px; }
+        .case-content p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+        .feature-list { list-style: none; margin: 20px 0; }
+        .feature-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 15px; }
+        .feature-list i { color: var(--primary); }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+        .tech-tag { background: var(--bg-light); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 30px 0; }
+        .metric-card { background: var(--bg-light); border-radius: var(--radius); padding: 24px; text-align: center; }
+        .metric-value { font-size: 32px; font-weight: 700; color: var(--primary); }
+        .metric-label { font-size: 14px; color: var(--text-muted); margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="lg" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:#10B981"/><stop offset="100%" style="stop-color:#6EE7B7"/></linearGradient></defs>
+                    <rect width="40" height="40" rx="10" fill="#1a1a2e"/>
+                    <path d="M20 32 L20 16" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M20 22 Q14 18 16 14" stroke="url(#lg)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M20 22 Q26 18 24 14" stroke="url(#lg)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M20 18 Q13 14 15 10" stroke="url(#lg)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M20 18 Q27 14 25 10" stroke="url(#lg)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M20 5 L22 11 L28 11 L23 14 L25 20 L20 16 L15 20 L17 14 L12 11 L18 11 Z" fill="url(#lg)"/>
+                </svg>
+                <span class="logo-text">寅禾星科技</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="services.html">服务</a></li>
+                <li><a href="pricing.html">报价</a></li>
+                <li><a href="cases.html" class="active">案例</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html" class="nav-cta">获取方案</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-hero">
+        <div>
+            <span style="background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; font-size: 14px;">智慧园区</span>
+            <h1 style="font-size: 36px; font-weight: 700; margin-top: 16px;">智慧园区管理平台</h1>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="case-content">
+                <h2>项目背景</h2>
+                <p>为北京某科技园区定制3D可视化大屏，对接物联网设备，实时展示人流、能耗、告警事件。项目周期28天，运维团队持续保障稳定运行至今。</p>
+
+                <h2>核心功能</h2>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> 3D园区地图</li>
+                    <li><i class="fas fa-check-circle"></i> 人流监控与分析</li>
+                    <li><i class="fas fa-check-circle"></i> 能耗实时监测</li>
+                    <li><i class="fas fa-check-circle"></i> 安防告警系统</li>
+                    <li><i class="fas fa-check-circle"></i> 车辆管理</li>
+                </ul>
+
+                <h2>技术栈</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Vue</span>
+                    <span class="tech-tag">Three.js</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">MQTT</span>
+                </div>
+
+                <h2>项目成果</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">28天</div>
+                        <div class="metric-label">项目周期</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">500+</div>
+                        <div class="metric-label">IoT设备接入</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">99.9%</div>
+                        <div class="metric-label">系统可用率</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="contact.html" class="btn btn-primary">咨询类似项目</a>
+                    <a href="cases.html" class="btn btn-outline" style="margin-left: 16px;">返回案例列表</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>京ICP备2025113153号-1 | Copyright © 2025 北京寅禾星科技有限公司</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
