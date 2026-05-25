@@ -1,0 +1,25 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" fill="#071A34"/>
+  <circle cx="1030" cy="108" r="220" fill="#2563EB" opacity=".28"/>
+  <circle cx="170" cy="620" r="260" fill="#10B981" opacity=".16"/>
+  <rect x="84" y="72" width="1032" height="531" rx="36" fill="#0B2345" stroke="#1F4B7A" stroke-width="2"/>
+  <rect x="126" y="116" width="948" height="70" rx="18" fill="#102B52"/>
+  <rect x="156" y="141" width="188" height="20" rx="10" fill="#E0F2FE"/>
+  <rect x="913" y="137" width="34" height="28" rx="8" fill="#10B981"/>
+  <rect x="959" y="137" width="34" height="28" rx="8" fill="#38BDF8"/>
+  <rect x="1005" y="137" width="34" height="28" rx="8" fill="#F97316"/>
+  <rect x="126" y="220" width="308" height="286" rx="24" fill="#0F315F" stroke="#245D95"/>
+  <path d="M188 417L245 344L295 371L370 282" stroke="#6EE7B7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="245" cy="344" r="14" fill="#6EE7B7"/>
+  <circle cx="370" cy="282" r="14" fill="#6EE7B7"/>
+  <rect x="470" y="220" width="286" height="286" rx="24" fill="#0F315F" stroke="#245D95"/>
+  <path d="M613 263C556 263 510 309 510 366C510 423 556 469 613 469C670 469 716 423 716 366" stroke="#38BDF8" stroke-width="24" stroke-linecap="round"/>
+  <path d="M613 263V366H716" stroke="#38BDF8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="792" y="220" width="282" height="286" rx="24" fill="#0F315F" stroke="#245D95"/>
+  <rect x="834" y="386" width="32" height="70" rx="8" fill="#2563EB"/>
+  <rect x="888" y="324" width="32" height="132" rx="8" fill="#38BDF8"/>
+  <rect x="942" y="278" width="32" height="178" rx="8" fill="#10B981"/>
+  <rect x="996" y="346" width="32" height="110" rx="8" fill="#F97316"/>
+  <text x="156" y="557" fill="#DDF7FF" font-family="Arial, sans-serif" font-size="28" font-weight="700">智慧园区实时运营大屏</text>
+  <text x="156" y="589" fill="#93C5FD" font-family="Arial, sans-serif" font-size="18">IoT 设备 · 人流能耗 · 告警监控</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse"><stop stop-color="#7F1D1D"/><stop offset="1" stop-color="#EF4444"/></linearGradient>
+    <linearGradient id="panel" x1="180" y1="110" x2="1020" y2="565" gradientUnits="userSpaceOnUse"><stop stop-color="#ffffff" stop-opacity=".96"/><stop offset="1" stop-color="#F8FAFC" stop-opacity=".9"/></linearGradient>
+    <filter id="shadow" x="80" y="40" width="1040" height="600" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#020617" flood-opacity=".22"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="115" r="230" fill="#F59E0B" opacity=".18"/>
+  <circle cx="150" cy="590" r="260" fill="#FFFFFF" opacity=".1"/>
+  <path d="M0 534C182 466 334 494 493 532C676 576 816 574 1200 438V675H0V534Z" fill="#fff" opacity=".08"/>
+  <rect x="116" y="82" width="968" height="511" rx="40" fill="url(#panel)" filter="url(#shadow)"/>
+  <rect x="168" y="134" width="864" height="74" rx="22" fill="#0F172A" opacity=".92"/>
+  <circle cx="210" cy="171" r="12" fill="#EF4444"/><circle cx="248" cy="171" r="12" fill="#F59E0B"/><circle cx="286" cy="171" r="12" fill="#22C55E"/>
+  <rect x="336" y="160" width="226" height="22" rx="11" fill="#E0F2FE" opacity=".9"/>
+  <rect x="168" y="248" width="380" height="250" rx="28" fill="#EEF2FF" stroke="#E2E8F0"/>
+  <rect x="606" y="248" width="426" height="250" rx="28" fill="#0F172A" opacity=".94"/>
+  <text x="216" y="342" fill="#EF4444" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="76" font-weight="700">SEC</text>
+  <rect x="216" y="388" width="252" height="18" rx="9" fill="#94A3B8" opacity=".75"/>
+  <rect x="216" y="426" width="190" height="18" rx="9" fill="#CBD5E1"/>
+  <path d="M660 432L718 358L780 392L860 304L970 418" stroke="#F59E0B" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><rect x="660" y="284" width="126" height="22" rx="11" fill="#60A5FA"/><rect x="660" y="328" width="82" height="22" rx="11" fill="#93C5FD"/>
+  <text x="168" y="565" fill="#0A2B4E" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="38" font-weight="700">企业安全运维体系</text>
+  <text x="168" y="613" fill="#64748B" font-family="Arial, 'Microsoft YaHei', sans-serif" font-size="22">漏洞治理 · 备份容灾 · 应急响应</text>
+</svg>

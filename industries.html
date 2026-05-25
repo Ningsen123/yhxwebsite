@@ -13,7 +13,9 @@
     <style>
         .industry-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); }
         .industry-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-        .industry-header { height: 120px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; }
+        .industry-header { height: 150px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; overflow: hidden; background: var(--secondary); }
+        .industry-header img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .industry-header > i { display: none; }
         .industry-content { padding: 32px; }
         .industry-content h3 { font-size: 22px; font-weight: 700; color: var(--secondary); margin-bottom: 12px; }
         .industry-content p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
@@ -78,8 +80,8 @@ var _hmt = _hmt || [];
             
             <div class="service-grid">
                 <div class="industry-card">
-                    <div class="industry-header" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
-                        <i class="fas fa-hospital"></i>
+                    <div class="industry-header">
+                        <img src="images/industries/healthcare.png" alt="医疗健康数字化解决方案">
                     </div>
                     <div class="industry-content">
                         <h3>医疗健康</h3>
@@ -95,8 +97,8 @@ var _hmt = _hmt || [];
                 </div>
 
                 <div class="industry-card">
-                    <div class="industry-header" style="background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);">
-                        <i class="fas fa-landmark"></i>
+                    <div class="industry-header">
+                        <img src="images/industries/finance.png" alt="金融服务数字化解决方案">
                     </div>
                     <div class="industry-content">
                         <h3>金融服务</h3>
@@ -112,8 +114,8 @@ var _hmt = _hmt || [];
                 </div>
 
                 <div class="industry-card">
-                    <div class="industry-header" style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);">
-                        <i class="fas fa-graduation-cap"></i>
+                    <div class="industry-header">
+                        <img src="images/industries/education.png" alt="智慧教育平台解决方案">
                     </div>
                     <div class="industry-content">
                         <h3>教育培训</h3>
@@ -129,8 +131,8 @@ var _hmt = _hmt || [];
                 </div>
 
                 <div class="industry-card">
-                    <div class="industry-header" style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);">
-                        <i class="fas fa-industry"></i>
+                    <div class="industry-header">
+                        <img src="images/industries/manufacturing.png" alt="智能制造平台解决方案">
                     </div>
                     <div class="industry-content">
                         <h3>智能制造</h3>
@@ -146,8 +148,8 @@ var _hmt = _hmt || [];
                 </div>
 
                 <div class="industry-card">
-                    <div class="industry-header" style="background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);">
-                        <i class="fas fa-shopping-cart"></i>
+                    <div class="industry-header">
+                        <img src="images/industries/retail.png" alt="零售连锁数字化解决方案">
                     </div>
                     <div class="industry-content">
                         <h3>零售连锁</h3>
@@ -163,8 +165,8 @@ var _hmt = _hmt || [];
                 </div>
 
                 <div class="industry-card">
-                    <div class="industry-header" style="background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);">
-                        <i class="fas fa-city"></i>
+                    <div class="industry-header">
+                        <img src="images/industries/smart-park.png" alt="智慧园区管理解决方案">
                     </div>
                     <div class="industry-content">
                         <h3>智慧园区</h3>

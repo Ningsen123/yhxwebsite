@@ -401,6 +401,24 @@
             justify-content: center;
             color: white;
             font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .case-image i {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
         }
 
         .case-content {
@@ -492,6 +510,19 @@
         .testimonial-author {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.7);
+        }
+
+        .customer-testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .customer-testimonial-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid var(--border);
         }
 
         .contact-wrapper {
@@ -664,6 +695,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .customer-testimonials {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .clients-logos {
                 gap: 30px;
             }
@@ -680,6 +715,10 @@
 
             .stat-number {
                 font-size: 36px;
+            }
+
+            .customer-testimonials {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -824,51 +863,6 @@ var _hmt = _hmt || [];
     </section>
 
     <!-- Services Section -->
-    
-    <!-- 客户评价 -->
-    <section class="section" style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-title">
-                <h2>客户评价</h2>
-                <p>听听客户怎么说</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">张</div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--secondary);">张总</div>
-                            <div style="font-size: 13px; color: var(--text-muted);">某电商公司 CTO</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"他们的运维团队帮我们避免了两次数据丢失危机，非常可靠。从开发到运维，一个团队全搞定，省心省力。"</p>
-                    <div style="color: #FBBF24;">★★★★★</div>
-                </div>
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: #10B981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">李</div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--secondary);">李经理</div>
-                            <div style="font-size: 13px; color: var(--text-muted);">某科技园区 运营总监</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"设计团队非常专业，大屏效果超出预期。领导看了很满意，现在其他部门也想做类似的可视化系统。"</p>
-                    <div style="color: #FBBF24;">★★★★★</div>
-                </div>
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: #8B5CF6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">王</div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--secondary);">王总</div>
-                            <div style="font-size: 13px; color: var(--text-muted);">某连锁餐饮 品牌负责人</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"小程序上线后运营成本很低，功能稳定。他们还提供了很多运营建议，帮助我们提升了复购率。"</p>
-                    <div style="color: #FBBF24;">★★★★★</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section" style="background: var(--bg-light);">
         <div class="container">
@@ -915,6 +909,7 @@ var _hmt = _hmt || [];
             <div class="case-grid">
                 <div class="case-card fade-in">
                     <div class="case-image">
+                        <img src="images/cases/smart-park-dashboard.png" alt="智慧园区管理大屏项目界面">
                         <i class="fas fa-building"></i>
                     </div>
                     <div class="case-content">
@@ -929,6 +924,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="case-card fade-in">
                     <div class="case-image" style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);">
+                        <img src="images/cases/restaurant-miniapp.png" alt="连锁餐饮会员小程序项目界面">
                         <i class="fas fa-utensils"></i>
                     </div>
                     <div class="case-content">
@@ -943,6 +939,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="case-card fade-in">
                     <div class="case-image" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+                        <img src="images/cases/ai-resume-parser.png" alt="AI简历解析工具项目界面">
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="case-content">
@@ -987,12 +984,6 @@ var _hmt = _hmt || [];
                     <div class="stat-label">工作日响应时间</div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">
-                    "他们的运维团队帮我们避免了两次数据丢失危机，非常可靠。从开发到运维，一个团队全搞定，省心省力。"
-                </p>
-                <p class="testimonial-author">—— 某电商CTO</p>
-            </div>
         </div>
     </section>
 
@@ -1005,8 +996,8 @@ var _hmt = _hmt || [];
                 <h2>客户评价</h2>
                 <p>听听客户怎么说</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
+            <div class="customer-testimonials">
+                <div class="customer-testimonial-card">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                         <div style="width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">张</div>
                         <div>
@@ -1017,7 +1008,7 @@ var _hmt = _hmt || [];
                     <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"他们的运维团队帮我们避免了两次数据丢失危机，非常可靠。从开发到运维，一个团队全搞定，省心省力。"</p>
                     <div style="color: #FBBF24;">★★★★★</div>
                 </div>
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
+                <div class="customer-testimonial-card">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                         <div style="width: 48px; height: 48px; background: #10B981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">李</div>
                         <div>
@@ -1028,7 +1019,7 @@ var _hmt = _hmt || [];
                     <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"设计团队非常专业，大屏效果超出预期。领导看了很满意，现在其他部门也想做类似的可视化系统。"</p>
                     <div style="color: #FBBF24;">★★★★★</div>
                 </div>
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
+                <div class="customer-testimonial-card">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                         <div style="width: 48px; height: 48px; background: #8B5CF6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">王</div>
                         <div>
@@ -1111,51 +1102,6 @@ var _hmt = _hmt || [];
     </section>
 
     <!-- CTA Section -->
-    
-    <!-- 客户评价 -->
-    <section class="section" style="background: var(--bg-light);">
-        <div class="container">
-            <div class="section-title">
-                <h2>客户评价</h2>
-                <p>听听客户怎么说</p>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">张</div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--secondary);">张总</div>
-                            <div style="font-size: 13px; color: var(--text-muted);">某电商公司 CTO</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"他们的运维团队帮我们避免了两次数据丢失危机，非常可靠。从开发到运维，一个团队全搞定，省心省力。"</p>
-                    <div style="color: #FBBF24;">★★★★★</div>
-                </div>
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: #10B981; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">李</div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--secondary);">李经理</div>
-                            <div style="font-size: 13px; color: var(--text-muted);">某科技园区 运营总监</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"设计团队非常专业，大屏效果超出预期。领导看了很满意，现在其他部门也想做类似的可视化系统。"</p>
-                    <div style="color: #FBBF24;">★★★★★</div>
-                </div>
-                <div style="background: white; border-radius: var(--radius); padding: 32px; border: 1px solid var(--border);">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                        <div style="width: 48px; height: 48px; background: #8B5CF6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">王</div>
-                        <div>
-                            <div style="font-weight: 600; color: var(--secondary);">王总</div>
-                            <div style="font-size: 13px; color: var(--text-muted);">某连锁餐饮 品牌负责人</div>
-                        </div>
-                    </div>
-                    <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">"小程序上线后运营成本很低，功能稳定。他们还提供了很多运营建议，帮助我们提升了复购率。"</p>
-                    <div style="color: #FBBF24;">★★★★★</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section" style="background: var(--bg-light);">
         <div class="container" style="text-align: center;">
