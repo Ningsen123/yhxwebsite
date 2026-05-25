@@ -1,405 +1,405 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>设计作品 - 寅禾星科技</title>
-    <meta name="description" content="北京寅禾星科技有限公司设计作品集，展示UI/UX设计、数据可视化、品牌官网、SaaS后台等专业设计能力。">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .portfolio-hero { padding: 140px 0 80px; background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%); text-align: center; }
-        .portfolio-hero h1 { font-size: 48px; font-weight: 800; color: white; margin-bottom: 16px; }
-        .portfolio-hero p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; }
-        .filter-bar { padding: 20px 0; background: white; border-bottom: 1px solid var(--border); position: sticky; top: 72px; z-index: 99; }
-        .filter-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .filter-btn { padding: 10px 24px; border: 2px solid var(--border); border-radius: 30px; background: white; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; }
-        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
-        .portfolio-section { padding: 60px 0; }
-        .portfolio-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; padding-left: 16px; border-left: 4px solid var(--primary); }
-        .portfolio-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-        .portfolio-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; }
-        .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
-        .portfolio-img { width: 100%; height: 220px; object-fit: cover; }
-        .portfolio-info { padding: 20px; }
-        .portfolio-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-        .portfolio-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-        .portfolio-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-        .portfolio-tag { padding: 4px 12px; background: var(--bg); border-radius: 20px; font-size: 12px; color: var(--text-muted); }
-        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
-        .modal.show { display: flex; }
-        .modal-content { max-width: 90%; max-height: 90vh; position: relative; }
-        .modal-img { max-width: 100%; max-height: 80vh; border-radius: 8px; }
-        .modal-close { position: absolute; top: -40px; right: 0; color: white; font-size: 32px; cursor: pointer; }
-        .modal-info { color: white; padding: 20px 0; text-align: center; }
-        .modal-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
-        .modal-desc { font-size: 14px; color: rgba(255,255,255,0.7); }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#10B981"/><stop offset="100%" style="stop-color:#0EA5E9"/></linearGradient></defs>
-                    <circle cx="20" cy="20" r="18" fill="url(#logoGrad)" opacity="0.15"/>
-                    <path d="M20 8 L24 18 L20 14 L16 18 Z" fill="url(#logoGrad)"/>
-                    <path d="M14 22 Q20 28 26 22" stroke="url(#logoGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
-                    <circle cx="12" cy="26" r="2" fill="#10B981"/>
-                    <circle cx="28" cy="26" r="2" fill="#0EA5E9"/>
-                </svg>
-                <span class="logo-text">寅禾星科技</span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html">首页</a>
-                <a href="services.html">服务</a>
-                <a href="portfolio.html">设计作品</a>
-                <a href="cases.html">案例</a>
-                <a href="about.html">关于</a>
-                <a href="contact.html">联系</a>
-            </div>
-            <div class="nav-right">
-                <a href="contact.html" class="btn btn-primary">免费咨询</a>
-            </div>
-        </div>
-    </nav>
-
-    <section class="portfolio-hero">
-        <div class="container">
-            <h1>设计作品集</h1>
-            <p>专业UI/UX设计，打造用户喜爱的产品体验</p>
-        </div>
-    </section>
-
-    <section class="filter-bar">
-        <div class="container">
-            <div class="filter-btns">
-                <button class="filter-btn active" onclick="filterPortfolio('all')">全部作品</button>
-                <button class="filter-btn" onclick="filterPortfolio('website')">品牌官网</button>
-                <button class="filter-btn" onclick="filterPortfolio('saas')">SaaS后台</button>
-                <button class="filter-btn" onclick="filterPortfolio('data')">数据大屏</button>
-                <button class="filter-btn" onclick="filterPortfolio('devops')">运维监控</button>
-                <button class="filter-btn" onclick="filterPortfolio('mobile')">移动端</button>
-                <button class="filter-btn" onclick="filterPortfolio('ai')">AI产品</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio-section">
-        <div class="container">
-            <!-- 品牌官网 -->
-            <div class="portfolio-category" data-category="website">
-                <h2>品牌官网设计</h2>
-                <div class="portfolio-gallery">
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-23.jpg', '科技公司品牌官网', '现代极简扁平化设计，手绘插画元素，橙色行动按钮')">
-                        <img src="images/portfolio/portfolio-23.jpg" alt="品牌官网" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">科技公司品牌官网</h3>
-                            <p class="portfolio-desc">现代极简扁平化设计，手绘插画元素，橙色行动按钮</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">UI设计</span>
-                                <span class="portfolio-tag">响应式</span>
-                                <span class="portfolio-tag">品牌视觉</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-24.jpg', 'SaaS产品官网', '蓝绿配色，卡片式布局，数据驱动设计')">
-                        <img src="images/portfolio/portfolio-24.jpg" alt="品牌官网2" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">SaaS产品官网</h3>
-                            <p class="portfolio-desc">蓝绿配色，卡片式布局，数据驱动设计</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">UI设计</span>
-                                <span class="portfolio-tag">SaaS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-25.jpg', '品牌官网设计', '简洁现代风格，突出品牌特色')">
-                        <img src="images/portfolio/portfolio-25.jpg" alt="品牌官网3" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">企业品牌官网</h3>
-                            <p class="portfolio-desc">简洁现代风格，突出品牌特色</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">UI设计</span>
-                                <span class="portfolio-tag">品牌</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SaaS后台 -->
-            <div class="portfolio-category" data-category="saas">
-                <h2>SaaS后台系统</h2>
-                <div class="portfolio-gallery">
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-35.jpg', '项目管理系统', '深色主题，数据可视化，模块化设计')">
-                        <img src="images/portfolio/portfolio-35.jpg" alt="SaaS后台" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">项目管理系统</h3>
-                            <p class="portfolio-desc">深色主题，数据可视化，模块化设计</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Dashboard</span>
-                                <span class="portfolio-tag">深色模式</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-36.jpg', '运营管理系统', '数据仪表盘，实时监控，多维度分析')">
-                        <img src="images/portfolio/portfolio-36.jpg" alt="SaaS后台2" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">运营管理系统</h3>
-                            <p class="portfolio-desc">数据仪表盘，实时监控，多维度分析</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Dashboard</span>
-                                <span class="portfolio-tag">数据分析</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-37.jpg', '后台管理系统', '高效管理，清晰的数据展示')">
-                        <img src="images/portfolio/portfolio-37.jpg" alt="SaaS后台3" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">后台管理系统</h3>
-                            <p class="portfolio-desc">高效管理，清晰的数据展示</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">Dashboard</span>
-                                <span class="portfolio-tag">管理系统</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 数据大屏 -->
-            <div class="portfolio-category" data-category="data">
-                <h2>数据可视化大屏</h2>
-                <div class="portfolio-gallery">
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-01.jpg', '智慧城市数据大屏', '深色科技风，实时数据展示，多维度可视化')">
-                        <img src="images/portfolio/portfolio-01.jpg" alt="数据大屏" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">智慧城市数据大屏</h3>
-                            <p class="portfolio-desc">深色科技风，实时数据展示，多维度可视化</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">大屏</span>
-                                <span class="portfolio-tag">实时数据</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-02.jpg', '数据分析大屏', '多维度数据展示，交互式图表')">
-                        <img src="images/portfolio/portfolio-02.jpg" alt="数据大屏2" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">数据分析大屏</h3>
-                            <p class="portfolio-desc">多维度数据展示，交互式图表</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">数据可视化</span>
-                                <span class="portfolio-tag">交互设计</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-03.jpg', '监控指挥中心', '实时监控，告警管理，应急响应')">
-                        <img src="images/portfolio/portfolio-03.jpg" alt="数据大屏3" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">监控指挥中心</h3>
-                            <p class="portfolio-desc">实时监控，告警管理，应急响应</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">监控</span>
-                                <span class="portfolio-tag">大屏</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 运维监控 -->
-            <div class="portfolio-category" data-category="devops">
-                <h2>运维监控可视化</h2>
-                <div class="portfolio-gallery">
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-29.jpg', 'DevOps监控面板', '服务器状态、部署流程、告警管理')">
-                        <img src="images/portfolio/portfolio-29.jpg" alt="运维监控" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">DevOps监控面板</h3>
-                            <p class="portfolio-desc">服务器状态、部署流程、告警管理</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">DevOps</span>
-                                <span class="portfolio-tag">监控</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-30.jpg', '运维仪表盘', '系统健康度、性能指标、告警统计')">
-                        <img src="images/portfolio/portfolio-30.jpg" alt="运维监控2" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">运维仪表盘</h3>
-                            <p class="portfolio-desc">系统健康度、性能指标、告警统计</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">仪表盘</span>
-                                <span class="portfolio-tag">监控</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-31.jpg', 'K8s监控大屏', '容器集群状态、资源使用、部署状态')">
-                        <img src="images/portfolio/portfolio-31.jpg" alt="运维监控3" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">K8s监控大屏</h3>
-                            <p class="portfolio-desc">容器集群状态、资源使用、部署状态</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">K8s</span>
-                                <span class="portfolio-tag">容器</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 移动端 -->
-            <div class="portfolio-category" data-category="mobile">
-                <h2>移动端App设计</h2>
-                <div class="portfolio-gallery">
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-19.jpg', '健康管理App', '清新风格，卡片布局，流畅交互')">
-                        <img src="images/portfolio/portfolio-19.jpg" alt="移动端" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">健康管理App</h3>
-                            <p class="portfolio-desc">清新风格，卡片布局，流畅交互</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">iOS</span>
-                                <span class="portfolio-tag">Android</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-20.jpg', '电商App', '购物体验优化，简洁支付流程')">
-                        <img src="images/portfolio/portfolio-20.jpg" alt="移动端2" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">电商App</h3>
-                            <p class="portfolio-desc">购物体验优化，简洁支付流程</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">电商</span>
-                                <span class="portfolio-tag">支付</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-21.jpg', '社交App', '清新风格，流畅交互')">
-                        <img src="images/portfolio/portfolio-21.jpg" alt="移动端3" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">社交App</h3>
-                            <p class="portfolio-desc">清新风格，流畅交互</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">社交</span>
-                                <span class="portfolio-tag">IM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI产品 -->
-            <div class="portfolio-category" data-category="ai">
-                <h2>AI产品界面</h2>
-                <div class="portfolio-gallery">
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-40.jpg', 'AI助手界面', '科技感设计，对话式交互，智能推荐')">
-                        <img src="images/portfolio/portfolio-40.jpg" alt="AI产品" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">AI助手界面</h3>
-                            <p class="portfolio-desc">科技感设计，对话式交互，智能推荐</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">AI</span>
-                                <span class="portfolio-tag">对话式</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-41.jpg', 'AI产品设计', '现代AI产品界面设计')">
-                        <img src="images/portfolio/portfolio-41.jpg" alt="AI产品2" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">AI产品设计</h3>
-                            <p class="portfolio-desc">现代AI产品界面设计</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">AI</span>
-                                <span class="portfolio-tag">UI设计</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-42.jpg', 'AI应用界面', '智能交互，数据可视化')">
-                        <img src="images/portfolio/portfolio-42.jpg" alt="AI产品3" class="portfolio-img">
-                        <div class="portfolio-info">
-                            <h3 class="portfolio-title">AI应用界面</h3>
-                            <p class="portfolio-desc">智能交互，数据可视化</p>
-                            <div class="portfolio-tags">
-                                <span class="portfolio-tag">AI</span>
-                                <span class="portfolio-tag">智能</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #0EA5E9, #8B5CF6); text-align: center;">
-        <div class="container">
-            <h2 style="font-size: 36px; color: white; margin-bottom: 16px;">需要专业的UI/UX设计服务？</h2>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 16px;">让我们帮您打造用户喜爱的产品体验</p>
-            <a href="contact.html" class="btn" style="background: white; color: #0EA5E9; padding: 16px 40px; font-size: 16px; border-radius: 30px;">立即咨询</a>
-        </div>
-    </section>
-
-    <footer class="footer" style="background: #0F172A;">
-        <div class="container">
-            <div class="footer-content" style="color: white;">
-                <div class="footer-info">
-                    <p style="color: white;">© 2026 北京寅禾星科技有限公司</p>
-                </div>
-                <div class="footer-links">
-                    <a href="index.html" style="color: rgba(255,255,255,0.6);">首页</a>
-                    <a href="portfolio.html" style="color: rgba(255,255,255,0.6);">设计作品</a>
-                    <a href="contact.html" style="color: rgba(255,255,255,0.6);">联系我们</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <div class="modal" id="imageModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <img src="" alt="" class="modal-img" id="modalImg">
-            <div class="modal-info">
-                <h3 class="modal-title" id="modalTitle"></h3>
-                <p class="modal-desc" id="modalDesc"></p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function filterPortfolio(category) {
-            const sections = document.querySelectorAll('.portfolio-category');
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            sections.forEach(section => {
-                if (category === 'all' || section.dataset.category === category) {
-                    section.style.display = 'block';
-                } else {
-                    section.style.display = 'none';
-                }
-            });
-        }
-
-        function openModal(src, title, desc) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalDesc').textContent = desc;
-            document.getElementById('imageModal').classList.add('show');
-        }
-
-        function closeModal() {
-            document.getElementById('imageModal').classList.remove('show');
-        }
-
-        document.getElementById('imageModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
-        });
-    </script>
-</body>
-</html>
+     1|<!DOCTYPE html>
+     2|<html lang="zh-CN">
+     3|<head>
+     4|    <meta charset="UTF-8">
+     5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|    <title>设计作品 - 寅禾星科技</title>
+     7|    <meta name="description" content="北京寅禾星科技有限公司设计作品集，展示UI/UX设计、数据可视化、品牌官网、SaaS后台等专业设计能力。">
+     8|    <link rel="preconnect" href="https://fonts.googleapis.com">
+     9|    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    10|    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    11|    <link rel="stylesheet" href="css/style.css">
+    12|    <style>
+    13|        .portfolio-hero { padding: 140px 0 80px; background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%); text-align: center; }
+    14|        .portfolio-hero h1 { font-size: 48px; font-weight: 800; color: white; margin-bottom: 16px; }
+    15|        .portfolio-hero p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; }
+    16|        .filter-bar { padding: 20px 0; background: white; border-bottom: 1px solid var(--border); position: sticky; top: 72px; z-index: 99; }
+    17|        .filter-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    18|        .filter-btn { padding: 10px 24px; border: 2px solid var(--border); border-radius: 30px; background: white; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s; }
+    19|        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+    20|        .portfolio-section { padding: 60px 0; }
+    21|        .portfolio-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; padding-left: 16px; border-left: 4px solid var(--primary); }
+    22|        .portfolio-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    23|        .portfolio-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; cursor: pointer; }
+    24|        .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+    25|        .portfolio-img { width: 100%; height: 220px; object-fit: cover; }
+    26|        .portfolio-info { padding: 20px; }
+    27|        .portfolio-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    28|        .portfolio-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    29|        .portfolio-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    30|        .portfolio-tag { padding: 4px 12px; background: var(--bg); border-radius: 20px; font-size: 12px; color: var(--text-muted); }
+    31|        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+    32|        .modal.show { display: flex; }
+    33|        .modal-content { max-width: 90%; max-height: 90vh; position: relative; }
+    34|        .modal-img { max-width: 100%; max-height: 80vh; border-radius: 8px; }
+    35|        .modal-close { position: absolute; top: -40px; right: 0; color: white; font-size: 32px; cursor: pointer; }
+    36|        .modal-info { color: white; padding: 20px 0; text-align: center; }
+    37|        .modal-title { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+    38|        .modal-desc { font-size: 14px; color: rgba(255,255,255,0.7); }
+    39|    </style>
+    40|</head>
+    41|<body>
+    42|    <nav class="navbar">
+    43|        <div class="nav-container">
+    44|            <a href="index.html" class="logo">
+    45|                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    46|                    <defs><linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#10B981"/><stop offset="100%" style="stop-color:#0EA5E9"/></linearGradient></defs>
+    47|                    <circle cx="20" cy="20" r="18" fill="url(#logoGrad)" opacity="0.15"/>
+    48|                    <path d="M20 8 L24 18 L20 14 L16 18 Z" fill="url(#logoGrad)"/>
+    49|                    <path d="M14 22 Q20 28 26 22" stroke="url(#logoGrad)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    50|                    <circle cx="12" cy="26" r="2" fill="#10B981"/>
+    51|                    <circle cx="28" cy="26" r="2" fill="#0EA5E9"/>
+    52|                </svg>
+    53|                <span class="logo-text">寅禾星科技</span>
+    54|            </a>
+    55|            <div class="nav-links">
+    56|                <a href="index.html">首页</a>
+    57|                <a href="services.html">服务</a>
+    58|                <a href="portfolio.html">设计作品</a>
+    59|                <a href="cases.html">案例</a>
+    60|                <a href="about.html">关于</a>
+    61|                <a href="contact.html">联系</a>
+    62|            </div>
+    63|            <div class="nav-right">
+    64|                <a href="contact.html" class="btn btn-primary">免费咨询</a>
+    65|            </div>
+    66|        </div>
+    67|    </nav>
+    68|
+    69|    <section class="portfolio-hero">
+    70|        <div class="container">
+    71|            <h1>设计作品集</h1>
+    72|            <p>专业UI/UX设计，打造用户喜爱的产品体验</p>
+    73|        </div>
+    74|    </section>
+    75|
+    76|    <section class="filter-bar">
+    77|        <div class="container">
+    78|            <div class="filter-btns">
+    79|                <button class="filter-btn active" onclick="filterPortfolio('all')">全部作品</button>
+    80|                <button class="filter-btn" onclick="filterPortfolio('website')">品牌官网</button>
+    81|                <button class="filter-btn" onclick="filterPortfolio('saas')">SaaS后台</button>
+    82|                <button class="filter-btn" onclick="filterPortfolio('data')">数据大屏</button>
+    83|                <button class="filter-btn" onclick="filterPortfolio('devops')">运维监控</button>
+    84|                <button class="filter-btn" onclick="filterPortfolio('mobile')">移动端</button>
+    85|                <button class="filter-btn" onclick="filterPortfolio('ai')">AI产品</button>
+    86|            </div>
+    87|        </div>
+    88|    </section>
+    89|
+    90|    <section class="portfolio-section">
+    91|        <div class="container">
+    92|            <!-- 品牌官网 -->
+    93|            <div class="portfolio-category" data-category="website">
+    94|                <h2>品牌官网设计</h2>
+    95|                <div class="portfolio-gallery">
+    96|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-23.jpg', '科技公司品牌官网', '现代极简扁平化设计，手绘插画元素，橙色行动按钮')">
+    97|                        <img src="images/portfolio/portfolio-23.jpg" alt="品牌官网" class="portfolio-img">
+    98|                        <div class="portfolio-info">
+    99|                            <h3 class="portfolio-title">科技公司品牌官网</h3>
+   100|                            <p class="portfolio-desc">现代极简扁平化设计，手绘插画元素，橙色行动按钮</p>
+   101|                            <div class="portfolio-tags">
+   102|                                <span class="portfolio-tag">UI设计</span>
+   103|                                <span class="portfolio-tag">响应式</span>
+   104|                                <span class="portfolio-tag">品牌视觉</span>
+   105|                            </div>
+   106|                        </div>
+   107|                    </div>
+   108|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-24.jpg', 'SaaS产品官网', '蓝绿配色，卡片式布局，数据驱动设计')">
+   109|                        <img src="images/portfolio/portfolio-24.jpg" alt="品牌官网2" class="portfolio-img">
+   110|                        <div class="portfolio-info">
+   111|                            <h3 class="portfolio-title">SaaS产品官网</h3>
+   112|                            <p class="portfolio-desc">蓝绿配色，卡片式布局，数据驱动设计</p>
+   113|                            <div class="portfolio-tags">
+   114|                                <span class="portfolio-tag">UI设计</span>
+   115|                                <span class="portfolio-tag">SaaS</span>
+   116|                            </div>
+   117|                        </div>
+   118|                    </div>
+   119|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-25.jpg', '品牌官网设计', '简洁现代风格，突出品牌特色')">
+   120|                        <img src="images/portfolio/portfolio-25.jpg" alt="品牌官网3" class="portfolio-img">
+   121|                        <div class="portfolio-info">
+   122|                            <h3 class="portfolio-title">企业品牌官网</h3>
+   123|                            <p class="portfolio-desc">简洁现代风格，突出品牌特色</p>
+   124|                            <div class="portfolio-tags">
+   125|                                <span class="portfolio-tag">UI设计</span>
+   126|                                <span class="portfolio-tag">品牌</span>
+   127|                            </div>
+   128|                        </div>
+   129|                    </div>
+   130|                </div>
+   131|            </div>
+   132|
+   133|            <!-- SaaS后台 -->
+   134|            <div class="portfolio-category" data-category="saas">
+   135|                <h2>SaaS后台系统</h2>
+   136|                <div class="portfolio-gallery">
+   137|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-35.jpg', '项目管理系统', '深色主题，数据可视化，模块化设计')">
+   138|                        <img src="images/portfolio/portfolio-35.jpg" alt="SaaS后台" class="portfolio-img">
+   139|                        <div class="portfolio-info">
+   140|                            <h3 class="portfolio-title">项目管理系统</h3>
+   141|                            <p class="portfolio-desc">深色主题，数据可视化，模块化设计</p>
+   142|                            <div class="portfolio-tags">
+   143|                                <span class="portfolio-tag">Dashboard</span>
+   144|                                <span class="portfolio-tag">深色模式</span>
+   145|                            </div>
+   146|                        </div>
+   147|                    </div>
+   148|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-36.jpg', '运营管理系统', '数据仪表盘，实时监控，多维度分析')">
+   149|                        <img src="images/portfolio/portfolio-36.jpg" alt="SaaS后台2" class="portfolio-img">
+   150|                        <div class="portfolio-info">
+   151|                            <h3 class="portfolio-title">运营管理系统</h3>
+   152|                            <p class="portfolio-desc">数据仪表盘，实时监控，多维度分析</p>
+   153|                            <div class="portfolio-tags">
+   154|                                <span class="portfolio-tag">Dashboard</span>
+   155|                                <span class="portfolio-tag">数据分析</span>
+   156|                            </div>
+   157|                        </div>
+   158|                    </div>
+   159|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-37.jpg', '后台管理系统', '高效管理，清晰的数据展示')">
+   160|                        <img src="images/portfolio/portfolio-37.jpg" alt="SaaS后台3" class="portfolio-img">
+   161|                        <div class="portfolio-info">
+   162|                            <h3 class="portfolio-title">后台管理系统</h3>
+   163|                            <p class="portfolio-desc">高效管理，清晰的数据展示</p>
+   164|                            <div class="portfolio-tags">
+   165|                                <span class="portfolio-tag">Dashboard</span>
+   166|                                <span class="portfolio-tag">管理系统</span>
+   167|                            </div>
+   168|                        </div>
+   169|                    </div>
+   170|                </div>
+   171|            </div>
+   172|
+   173|            <!-- 数据大屏 -->
+   174|            <div class="portfolio-category" data-category="data">
+   175|                <h2>数据可视化大屏</h2>
+   176|                <div class="portfolio-gallery">
+   177|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-01.jpg', '智慧城市数据大屏', '深色科技风，实时数据展示，多维度可视化')">
+   178|                        <img src="images/portfolio/portfolio-01.jpg" alt="数据大屏" class="portfolio-img">
+   179|                        <div class="portfolio-info">
+   180|                            <h3 class="portfolio-title">智慧城市数据大屏</h3>
+   181|                            <p class="portfolio-desc">深色科技风，实时数据展示，多维度可视化</p>
+   182|                            <div class="portfolio-tags">
+   183|                                <span class="portfolio-tag">大屏</span>
+   184|                                <span class="portfolio-tag">实时数据</span>
+   185|                            </div>
+   186|                        </div>
+   187|                    </div>
+   188|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-02.jpg', '数据分析大屏', '多维度数据展示，交互式图表')">
+   189|                        <img src="images/portfolio/portfolio-02.jpg" alt="数据大屏2" class="portfolio-img">
+   190|                        <div class="portfolio-info">
+   191|                            <h3 class="portfolio-title">数据分析大屏</h3>
+   192|                            <p class="portfolio-desc">多维度数据展示，交互式图表</p>
+   193|                            <div class="portfolio-tags">
+   194|                                <span class="portfolio-tag">数据可视化</span>
+   195|                                <span class="portfolio-tag">交互设计</span>
+   196|                            </div>
+   197|                        </div>
+   198|                    </div>
+   199|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-03.jpg', '监控指挥中心', '实时监控，告警管理，应急响应')">
+   200|                        <img src="images/portfolio/portfolio-03.jpg" alt="数据大屏3" class="portfolio-img">
+   201|                        <div class="portfolio-info">
+   202|                            <h3 class="portfolio-title">监控指挥中心</h3>
+   203|                            <p class="portfolio-desc">实时监控，告警管理，应急响应</p>
+   204|                            <div class="portfolio-tags">
+   205|                                <span class="portfolio-tag">监控</span>
+   206|                                <span class="portfolio-tag">大屏</span>
+   207|                            </div>
+   208|                        </div>
+   209|                    </div>
+   210|                </div>
+   211|            </div>
+   212|
+   213|            <!-- 运维监控 -->
+   214|            <div class="portfolio-category" data-category="devops">
+   215|                <h2>运维监控可视化</h2>
+   216|                <div class="portfolio-gallery">
+   217|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-29.jpg', 'DevOps监控面板', '服务器状态、部署流程、告警管理')">
+   218|                        <img src="images/portfolio/portfolio-29.jpg" alt="运维监控" class="portfolio-img">
+   219|                        <div class="portfolio-info">
+   220|                            <h3 class="portfolio-title">DevOps监控面板</h3>
+   221|                            <p class="portfolio-desc">服务器状态、部署流程、告警管理</p>
+   222|                            <div class="portfolio-tags">
+   223|                                <span class="portfolio-tag">DevOps</span>
+   224|                                <span class="portfolio-tag">监控</span>
+   225|                            </div>
+   226|                        </div>
+   227|                    </div>
+   228|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-30.jpg', '运维仪表盘', '系统健康度、性能指标、告警统计')">
+   229|                        <img src="images/portfolio/portfolio-30.jpg" alt="运维监控2" class="portfolio-img">
+   230|                        <div class="portfolio-info">
+   231|                            <h3 class="portfolio-title">运维仪表盘</h3>
+   232|                            <p class="portfolio-desc">系统健康度、性能指标、告警统计</p>
+   233|                            <div class="portfolio-tags">
+   234|                                <span class="portfolio-tag">仪表盘</span>
+   235|                                <span class="portfolio-tag">监控</span>
+   236|                            </div>
+   237|                        </div>
+   238|                    </div>
+   239|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-31.jpg', 'K8s监控大屏', '容器集群状态、资源使用、部署状态')">
+   240|                        <img src="images/portfolio/portfolio-31.jpg" alt="运维监控3" class="portfolio-img">
+   241|                        <div class="portfolio-info">
+   242|                            <h3 class="portfolio-title">K8s监控大屏</h3>
+   243|                            <p class="portfolio-desc">容器集群状态、资源使用、部署状态</p>
+   244|                            <div class="portfolio-tags">
+   245|                                <span class="portfolio-tag">K8s</span>
+   246|                                <span class="portfolio-tag">容器</span>
+   247|                            </div>
+   248|                        </div>
+   249|                    </div>
+   250|                </div>
+   251|            </div>
+   252|
+   253|            <!-- 移动端 -->
+   254|            <div class="portfolio-category" data-category="mobile">
+   255|                <h2>移动端App设计</h2>
+   256|                <div class="portfolio-gallery">
+   257|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-19.jpg', '健康管理App', '清新风格，卡片布局，流畅交互')">
+   258|                        <img src="images/portfolio/portfolio-19.jpg" alt="移动端" class="portfolio-img">
+   259|                        <div class="portfolio-info">
+   260|                            <h3 class="portfolio-title">健康管理App</h3>
+   261|                            <p class="portfolio-desc">清新风格，卡片布局，流畅交互</p>
+   262|                            <div class="portfolio-tags">
+   263|                                <span class="portfolio-tag">iOS</span>
+   264|                                <span class="portfolio-tag">Android</span>
+   265|                            </div>
+   266|                        </div>
+   267|                    </div>
+   268|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-20.jpg', '电商App', '购物体验优化，简洁支付流程')">
+   269|                        <img src="images/portfolio/portfolio-20.jpg" alt="移动端2" class="portfolio-img">
+   270|                        <div class="portfolio-info">
+   271|                            <h3 class="portfolio-title">电商App</h3>
+   272|                            <p class="portfolio-desc">购物体验优化，简洁支付流程</p>
+   273|                            <div class="portfolio-tags">
+   274|                                <span class="portfolio-tag">电商</span>
+   275|                                <span class="portfolio-tag">支付</span>
+   276|                            </div>
+   277|                        </div>
+   278|                    </div>
+   279|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-21.jpg', '社交App', '清新风格，流畅交互')">
+   280|                        <img src="images/portfolio/portfolio-21.jpg" alt="移动端3" class="portfolio-img">
+   281|                        <div class="portfolio-info">
+   282|                            <h3 class="portfolio-title">社交App</h3>
+   283|                            <p class="portfolio-desc">清新风格，流畅交互</p>
+   284|                            <div class="portfolio-tags">
+   285|                                <span class="portfolio-tag">社交</span>
+   286|                                <span class="portfolio-tag">IM</span>
+   287|                            </div>
+   288|                        </div>
+   289|                    </div>
+   290|                </div>
+   291|            </div>
+   292|
+   293|            <!-- AI产品 -->
+   294|            <div class="portfolio-category" data-category="ai">
+   295|                <h2>AI产品界面</h2>
+   296|                <div class="portfolio-gallery">
+   297|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-40.jpg', 'AI助手界面', '科技感设计，对话式交互，智能推荐')">
+   298|                        <img src="images/portfolio/portfolio-40.jpg" alt="AI产品" class="portfolio-img">
+   299|                        <div class="portfolio-info">
+   300|                            <h3 class="portfolio-title">AI助手界面</h3>
+   301|                            <p class="portfolio-desc">科技感设计，对话式交互，智能推荐</p>
+   302|                            <div class="portfolio-tags">
+   303|                                <span class="portfolio-tag">AI</span>
+   304|                                <span class="portfolio-tag">对话式</span>
+   305|                            </div>
+   306|                        </div>
+   307|                    </div>
+   308|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-41.jpg', 'AI产品设计', '现代AI产品界面设计')">
+   309|                        <img src="images/portfolio/portfolio-41.jpg" alt="AI产品2" class="portfolio-img">
+   310|                        <div class="portfolio-info">
+   311|                            <h3 class="portfolio-title">AI产品设计</h3>
+   312|                            <p class="portfolio-desc">现代AI产品界面设计</p>
+   313|                            <div class="portfolio-tags">
+   314|                                <span class="portfolio-tag">AI</span>
+   315|                                <span class="portfolio-tag">UI设计</span>
+   316|                            </div>
+   317|                        </div>
+   318|                    </div>
+   319|                    <div class="portfolio-card" onclick="openModal('images/portfolio/portfolio-42.jpg', 'AI应用界面', '智能交互，数据可视化')">
+   320|                        <img src="images/portfolio/portfolio-42.jpg" alt="AI产品3" class="portfolio-img">
+   321|                        <div class="portfolio-info">
+   322|                            <h3 class="portfolio-title">AI应用界面</h3>
+   323|                            <p class="portfolio-desc">智能交互，数据可视化</p>
+   324|                            <div class="portfolio-tags">
+   325|                                <span class="portfolio-tag">AI</span>
+   326|                                <span class="portfolio-tag">智能</span>
+   327|                            </div>
+   328|                        </div>
+   329|                    </div>
+   330|                </div>
+   331|            </div>
+   332|        </div>
+   333|    </section>
+   334|
+   335|    <!-- CTA -->
+   336|    <section style="padding: 80px 0; background: linear-gradient(135deg, #0EA5E9, #8B5CF6); text-align: center;">
+   337|        <div class="container">
+   338|            <h2 style="font-size: 36px; color: white; margin-bottom: 16px;">需要专业的UI/UX设计服务？</h2>
+   339|            <p style="color: rgba(255,255,255,0.8); margin-bottom: 32px; font-size: 16px;">让我们帮您打造用户喜爱的产品体验</p>
+   340|            <a href="contact.html" class="btn" style="background: white; color: #0EA5E9; padding: 16px 40px; font-size: 16px; border-radius: 30px;">立即咨询</a>
+   341|        </div>
+   342|    </section>
+   343|
+   344|    <footer class="footer" style="background: #0F172A;">
+   345|        <div class="container">
+   346|            <div class="footer-content" style="color: white;">
+   347|                <div class="footer-info">
+   348|                    <p style="color: white;">© 2026 北京寅禾星科技有限公司</p>
+   349|                </div>
+   350|                <div class="footer-links">
+   351|                    <a href="index.html" style="color: rgba(255,255,255,0.6);">首页</a>
+   352|                    <a href="portfolio.html" style="color: rgba(255,255,255,0.6);">设计作品</a>
+   353|                    <a href="contact.html" style="color: rgba(255,255,255,0.6);">联系我们</a>
+   354|                </div>
+   355|            </div>
+   356|        </div>
+   357|    </footer>
+   358|
+   359|    <div class="modal" id="imageModal">
+   360|        <div class="modal-content">
+   361|            <span class="modal-close" onclick="closeModal()">&times;</span>
+   362|            <img src="" alt="" class="modal-img" id="modalImg">
+   363|            <div class="modal-info">
+   364|                <h3 class="modal-title" id="modalTitle"></h3>
+   365|                <p class="modal-desc" id="modalDesc"></p>
+   366|            </div>
+   367|        </div>
+   368|    </div>
+   369|
+   370|    <script>
+   371|        function filterPortfolio(category) {
+   372|            const sections = document.querySelectorAll('.portfolio-category');
+   373|            const buttons = document.querySelectorAll('.filter-btn');
+   374|            buttons.forEach(btn => btn.classList.remove('active'));
+   375|            event.target.classList.add('active');
+   376|            sections.forEach(section => {
+   377|                if (category === 'all' || section.dataset.category === category) {
+   378|                    section.style.display = 'block';
+   379|                } else {
+   380|                    section.style.display = 'none';
+   381|                }
+   382|            });
+   383|        }
+   384|
+   385|        function openModal(src, title, desc) {
+   386|            document.getElementById('modalImg').src = src;
+   387|            document.getElementById('modalTitle').textContent = title;
+   388|            document.getElementById('modalDesc').textContent = desc;
+   389|            document.getElementById('imageModal').classList.add('show');
+   390|        }
+   391|
+   392|        function closeModal() {
+   393|            document.getElementById('imageModal').classList.remove('show');
+   394|        }
+   395|
+   396|        document.getElementById('imageModal').addEventListener('click', function(e) {
+   397|            if (e.target === this) closeModal();
+   398|        });
+   399|
+   400|        document.addEventListener('keydown', function(e) {
+   401|            if (e.key === 'Escape') closeModal();
+   402|        });
+   403|    </script>
+   404|</body>
+   405|</html>
